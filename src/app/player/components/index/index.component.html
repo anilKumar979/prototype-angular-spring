@@ -1,0 +1,32 @@
+<p>index works!</p>
+<!-- <app-header></app-header>
+<h3>Some Other componenets</h3> -->
+
+
+<ng-container [formGroup]="appIndex">
+  <kendo-formfield>
+    <!-- <kendo-label [for]="fullName" text="Full Name"></kendo-label> -->
+    <kendo-textbox #Payment formControlName="paymentType"></kendo-textbox>
+
+    <kendo-formfield showHints="initial" showErrors="initial">
+      <!-- <kendo-label [for]="country" text="Country"></kendo-label> -->
+      <kendo-textbox #card formControlName="cardNumber"></kendo-textbox>
+
+
+    </kendo-formfield>
+    </kendo-formfield>
+    </ng-container>
+
+
+<!-- <div>
+    <kendo-stepper
+      [steps]="steps"
+      stepType="full"
+      [(currentStep)]="current"
+      [linear]="false"
+      [style.width.px]="570"
+      orientation="horizontal"
+    >
+    </kendo-stepper>
+</div> -->
+<!-- <app-footer></app-footer> -->

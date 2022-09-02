@@ -1,0 +1,44 @@
+<!-- <p>footer works!</p> -->
+
+<ng-container [formGroup]="appFooter">
+  <kendo-formfield>
+    <kendo-label [for]="fullName" text="Full Name"></kendo-label>
+    <kendo-textbox #fullName formControlName="fullName"></kendo-textbox>
+
+    <kendo-formfield showHints="initial" showErrors="initial">
+      <kendo-label [for]="country" text="Country"></kendo-label>
+      <kendo-textbox #country formControlName="country"></kendo-textbox>
+
+
+    </kendo-formfield>
+
+    <kendo-formfield>
+      <label class="k-label">Gender</label>
+
+      <ul class="k-radio-list k-list-horizontal">
+        <li class="k-radio-item">
+          <input type="radio" #male value="male" kendoRadioButton formControlName="gender" />
+          <kendo-label class="k-radio-label" [for]="male" text="Male"></kendo-label>
+        </li>
+
+        <li class="k-radio-item">
+          <input type="radio" #female value="female" kendoRadioButton formControlName="gender" />
+          <kendo-label class="k-radio-label" [for]="female" text="Female"></kendo-label>
+        </li>
+
+        <li class="k-radio-item">
+          <input type="radio" #other value="other" kendoRadioButton formControlName="gender" />
+          <kendo-label class="k-radio-label" [for]="other" text="Other"></kendo-label>
+        </li>
+      </ul>
+
+      <kendo-formerror>This field is required</kendo-formerror>
+    </kendo-formfield>
+
+    <kendo-formfield>
+      <kendo-label [for]="about" text="About" [optional]="true"></kendo-label>
+      <kendo-textarea #about formControlName="about" placeholder="Who you are..."></kendo-textarea>
+    </kendo-formfield>
+    </kendo-formfield>
+    </ng-container>
+    <!-- </ng-container> -->

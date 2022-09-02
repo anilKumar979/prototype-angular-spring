@@ -1,0 +1,374 @@
+<!-- <ng-container [formGroup]="performanceMeasure"> -->
+  <div>
+    <strong>
+  
+      <h3 style="text-align:center">Performance Measurement</h3>
+    </strong>
+  </div>
+  <tabset>
+    <tab heading="Purpose">
+  
+      <kendo-panelbar>
+        <kendo-panelbar-item title="Purpose" [expanded]="true">
+          <ng-template kendoPanelBarContent>
+            <form [formGroup]="purposeMeasure" (ngSubmit)="onPurposeSubmit('purpose')">
+              <div class="d-grid">
+                <label>Attribute Name</label>
+                <select class="custom-select mb-4" formControlName="Attribute_Name">
+  
+                  <option *ngFor="let att of PurposeList" [ngValue]="att.NAME">
+                    {{ att.NAME }}
+                  </option>
+                </select>
+  
+                <label>Sub Attribute Name</label>
+                <select class="custom-select mb-4" formControlName="SubAttribute_Name">
+  
+                  <option *ngFor="let subAtt of SubAttribute" [ngValue]="subAtt.AttName">
+                    {{ subAtt.AttName }}
+                  </option>
+                </select>
+  
+                <label>Percentage</label>
+                <input type="number" text="Percentage" formControlName="Percentage" />
+  
+                <div class="d-flex">
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div>            
+  
+              <button (click)="one.MeasureTableView('Purpose')" class=" button btn-primary"> Show List </button>
+              <app-measure-table-tab #one></app-measure-table-tab>
+  
+            </div>
+  
+          </ng-template>
+  
+        </kendo-panelbar-item>
+      </kendo-panelbar>
+    </tab>
+  
+    <tab heading="Waterbody">    
+      <kendo-panelbar>
+        <kendo-panelbar-item title="Waterbody" [expanded]="true">
+          <ng-template kendoPanelBarContent>
+            <form [formGroup]="waterbodyMeasure" (ngSubmit)="onPurposeSubmit('waterbody')">
+              <div class="d-grid">
+                <label>Attribute Name</label>
+                <select class="custom-select mb-4" formControlName="Waterbody_Attribute_Name">
+  
+                  <option *ngFor="let Watt of waterbodyList" [ngValue]="Watt.NAME">
+                    {{ Watt.NAME }}
+                  </option>
+                </select>
+  
+                <label>Sub Attribute Name</label>
+                <select class="custom-select mb-4" formControlName="Waterbody_SubAttribute_Name">
+  
+                  <option *ngFor="let subAtt of SubAttribute" [ngValue]="subAtt.AttName">
+                    {{ subAtt.AttName }}
+                  </option>
+                </select>
+  
+                <label>Percentage</label>
+                <input type="number" text="Percentage" formControlName="Waterbody_Percentage" />
+  
+                <div class="d-flex">
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div>           
+              <button (click)="one.MeasureTableView('Waterbody')" class=" button btn-primary"> Show List </button>
+              <app-measure-table-tab #one></app-measure-table-tab>
+            </div>
+          </ng-template>
+        </kendo-panelbar-item>
+      </kendo-panelbar>    
+    </tab>
+  
+    <tab heading="Land Use">    
+      <kendo-panelbar>
+        <kendo-panelbar-item title="Land Use" [expanded]="true">
+          <ng-template kendoPanelBarContent>
+            <form [formGroup]="landuseMeasure" (ngSubmit)="onPurposeSubmit('landuse')">
+              <div class="d-grid">
+                <label>Attribute Name</label>
+                <select class="custom-select mb-4" formControlName="Landuse_Attribute_Name">
+  
+                  <option *ngFor="let Latt of landuseList" [ngValue]="Latt.NAME">
+                    {{ Latt.NAME }}
+                  </option>
+                </select>
+  
+                <label>Sub Attribute Name</label>
+                <select class="custom-select mb-4" formControlName="Landuse_SubAttribute_Name">
+  
+                  <option *ngFor="let subAtt of SubAttribute" [ngValue]="subAtt.AttName">
+                    {{ subAtt.AttName }}
+                  </option>
+                </select>
+  
+                <label>Percentage</label>
+                <input type="number" text="Percentage" formControlName="Landuse_Percentage" />
+  
+                <div class="d-flex">
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div>           
+              <button (click)="one.MeasureTableView('Land Use')" class=" button btn-primary"> Show List </button>
+              <app-measure-table-tab #one></app-measure-table-tab>
+            </div>
+          </ng-template>
+        </kendo-panelbar-item>
+      </kendo-panelbar>    
+    </tab>
+    <tab heading="Site Condition">    
+      <kendo-panelbar>
+        <kendo-panelbar-item title="Site Condition" [expanded]="true">
+          <ng-template kendoPanelBarContent>
+            <form [formGroup]="siteMeasure" (ngSubmit)="onPurposeSubmit('sitecon')">
+              <div class="d-grid">
+                <label>Attribute Name</label>
+                <select class="custom-select mb-4" formControlName="Site_Attribute_Name">
+  
+                  <option *ngFor="let Satt of siteconditionList" [ngValue]="Satt.NAME">
+                    {{ Satt.NAME }}
+                  </option>
+                </select>
+  
+                <label>Sub Attribute Name</label>
+                <select class="custom-select mb-4" formControlName="Site_SubAttribute_Name">
+  
+                  <option *ngFor="let subAtt of SubAttribute" [ngValue]="subAtt.AttName">
+                    {{ subAtt.AttName }}
+                  </option>
+                </select>
+  
+                <label>Percentage</label>
+                <input type="number" text="Percentage" formControlName="Site_Percentage" />
+  
+                <div class="d-flex">
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div>           
+              <button (click)="one.MeasureTableView('Site Condition')" class=" button btn-primary"> Show List </button>
+              <app-measure-table-tab #one></app-measure-table-tab>
+            </div>
+          </ng-template>
+        </kendo-panelbar-item>
+      </kendo-panelbar>    
+    </tab>
+  
+    <tab heading="Implementation">    
+      <kendo-panelbar>
+        <kendo-panelbar-item title="Implementation" [expanded]="true">
+          <ng-template kendoPanelBarContent>
+            <form [formGroup]="ImplementMeasure" (ngSubmit)="onPurposeSubmit('Implement')">
+              <div class="d-grid">
+                <label>Attribute Name</label>
+                <select class="custom-select mb-4" formControlName="Implement_Attribute_Name">
+  
+                  <option *ngFor="let Latt of ImplementList" [ngValue]="Latt.NAME">
+                    {{ Latt.NAME }}
+                  </option>
+                </select>
+  
+                <label>Sub Attribute Name</label>
+                <select class="custom-select mb-4" formControlName="Implement_SubAttribute_Name">
+  
+                  <option *ngFor="let subAtt of SubAttribute" [ngValue]="subAtt.AttName">
+                    {{ subAtt.AttName }}
+                  </option>
+                </select>
+  
+                <label>Percentage</label>
+                <input type="number" text="Percentage" formControlName="Implement_Percentage" />
+  
+                <div class="d-flex">
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div>           
+              <button (click)="one.MeasureTableView('Implementation')" class=" button btn-primary"> Show List </button>
+              <app-measure-table-tab #one></app-measure-table-tab>
+            </div>
+          </ng-template>
+        </kendo-panelbar-item>
+      </kendo-panelbar>    
+    </tab>
+  
+    <tab heading="TMDL">    
+      <kendo-panelbar>
+        <kendo-panelbar-item title="TMDL" [expanded]="true">
+          <ng-template kendoPanelBarContent>
+            <form [formGroup]="TmdlMeasure" (ngSubmit)="onPurposeSubmit('tmdl')">
+              <div class="d-grid">
+                <label>Tmdl Phase</label>
+                <select class="custom-select mb-4" formControlName="Tmdl_Phase">
+  
+                  <option *ngFor="let tmdatt of tmdPhaseList" [ngValue]="tmdatt.NAME">
+                    {{ tmdatt.NAME }}
+                  </option>
+                </select>
+  
+                <label>Stresor</label>
+                <select class="custom-select mb-4" formControlName="Stresor">
+  
+                  <option *ngFor="let subAtt of SubAttribute" [ngValue]="subAtt.AttName">
+                    {{ subAtt.AttName }}
+                  </option>
+                </select>
+  
+                <label>Percentage</label>
+                <input type="number" text="Percentage" formControlName="Tmdl_Percentage" />
+  
+                <div class="d-flex">
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div>           
+              <button (click)="one.MeasureTableView('TMDL')" class=" button btn-primary"> Show List </button>
+              <app-measure-table-tab #one></app-measure-table-tab>
+            </div>
+          </ng-template>
+        </kendo-panelbar-item>
+      </kendo-panelbar>    
+    </tab>
+  
+    <tab heading="BMPs">    
+      <kendo-panelbar>
+        <kendo-panelbar-item title="BMPs" [expanded]="true">
+          <ng-template kendoPanelBarContent>
+            <form [formGroup]="BmpMeasure" (ngSubmit)="onPurposeSubmit('bmps')">
+              <div class="d-grid">
+                <label>Bmp Group</label>
+  
+                <select class="custom-select mb-4"
+                           id="companydropdown" (change)="BmpsSubValue($event)"
+                             formControlName="BMP_Group">
+                  <option *ngFor="let Bmpatt of bmpGrpList"  value="{{Bmpatt.ID}}">
+                    {{Bmpatt.NAME}}
+                  </option>
+                </select>
+               
+                <label>Bmp Sub Group</label>
+                <select class="custom-select mb-4" formControlName="BMP_SubGroup">
+  
+                  <option *ngFor="let bmpsubAtt of bmpSubList" [ngValue]="bmpsubAtt.VALUE">
+                    {{ bmpsubAtt.VALUE }}
+                  </option>
+                </select>
+  
+                <label>Percentage</label>
+                <input type="number" text="Percentage" formControlName="BMP_Percentage" />
+  
+                <div class="d-flex">
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div>           
+              <button (click)="one.MeasureTableView('BMPs')" class=" button btn-primary"> Show List </button>
+              <app-measure-table-tab #one></app-measure-table-tab>
+            </div>
+          </ng-template>
+        </kendo-panelbar-item>
+      </kendo-panelbar>    
+    </tab>
+    
+    <tab heading="Sampling">    
+      <kendo-panelbar>
+        <kendo-panelbar-item title="Sampling" [expanded]="true">
+          <ng-template kendoPanelBarContent>
+            <form [formGroup]="SamplingMeasure" (ngSubmit)="onPurposeSubmit('sampling')">
+              <div class="d-grid">
+                <label>Attribute Name</label>
+                <select class="custom-select mb-4" formControlName="Sampling_Attribute_Name">
+  
+                  <option *ngFor="let sampleatt of samplingList" [ngValue]="sampleatt.NAME">
+                    {{ sampleatt.NAME }}
+                  </option>
+                </select>
+  
+                <label>Stresor</label>
+                <select class="custom-select mb-4" formControlName="Sampling_SubAttribute_Name">
+  
+                  <option *ngFor="let subAtt of SubAttribute" [ngValue]="subAtt.AttName">
+                    {{ subAtt.AttName }}
+                  </option>
+                </select>
+  
+                <label>Percentage</label>
+                <input type="number" text="Percentage" formControlName="Sampling_Percentage" />
+  
+                <div class="d-flex">
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div>           
+              <button (click)="one.MeasureTableView('Sampling')" class=" button btn-primary"> Show List </button>
+              <app-measure-table-tab #one></app-measure-table-tab>
+            </div>
+          </ng-template>
+        </kendo-panelbar-item>
+      </kendo-panelbar>    
+    </tab>
+    
+    <tab heading="Comments">    
+      <kendo-panelbar>
+        <kendo-panelbar-item title="Sampling" [expanded]="true">
+          <ng-template kendoPanelBarContent>
+            <form [formGroup]="CommentsMeasure" (ngSubmit)="onPurposeSubmit('comments')">
+              <div class="d-grid">         
+  
+                
+  
+                <label>Percentage</label>
+                <textarea type="text"  text="Comments" formControlName="Comments"> </textarea>
+                <!-- <textarea  type="textarea" text="Comments" formControlName="Comments" /> -->
+  
+                <div class="d-flex">
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div>           
+              <button (click)="one.MeasureTableView('Comments')" class=" button btn-primary"> Show List </button>
+              <app-measure-table-tab #one></app-measure-table-tab>
+            </div>
+          </ng-template>
+        </kendo-panelbar-item>
+      </kendo-panelbar>    
+    </tab>
+    
+  </tabset>
+  <!-- </ng-container> -->
+  

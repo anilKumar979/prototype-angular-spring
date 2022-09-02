@@ -1,0 +1,32 @@
+<!-- <p>create works!</p> -->
+
+<ng-container [formGroup]="appCreate">
+    <kendo-formfield>
+        <kendo-label [for]="username" text="Username"></kendo-label>
+        <kendo-textbox formControlName="userName" #username [clearButton]="true"></kendo-textbox>
+        <kendo-formerror>Username is required</kendo-formerror>
+    </kendo-formfield>
+
+    <kendo-formfield>
+        <kendo-label [for]="email" text="Email"></kendo-label>
+        <kendo-textbox formControlName="email" #email [clearButton]="true"></kendo-textbox>
+       
+    </kendo-formfield>
+
+    <kendo-formfield>
+        <kendo-label [for]="password" text="Password"> </kendo-label>
+        <kendo-textbox formControlName="password" #password required [clearButton]="true">
+            <ng-template kendoTextBoxSuffixTemplate>
+                <!-- <button kendoButton look="clear" icon="eye" (click)="toggleVisibility()"></button> -->
+            </ng-template>
+        </kendo-textbox>
+        <kendo-formerror>Password is required</kendo-formerror>
+    </kendo-formfield>
+
+    <kendo-formfield>
+        <!-- <kendo-label [for]="avatar" [optional]="true" text="Avatar"></kendo-label> -->
+       
+
+        <kendo-formhint>Allowed extensions are jpg, jpeg or png</kendo-formhint>
+    </kendo-formfield>
+</ng-container>

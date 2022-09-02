@@ -1,0 +1,48 @@
+td, th {
+  width: 4rem;
+  height: 2rem;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+th {
+  background: lightblue;
+  border-color: white;
+}
+body {
+  padding: 1rem;
+}
+/* .checkTbl {
+  background-color: red;
+    font-style: normal;
+    color: antiquewhite;
+} */
+
+.opration2 a {color: #fff !important;}
+.padding-22{
+  padding:22px;min-height: 425px;
+}
+.opration2 button{margin-right: 5px;}
+.img-css{
+  position: relative;
+  border: 1px solid #ccc;
+    padding: 12px 5px;
+
+}
+.btn{
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+}
+.btn-danger {
+  color: #fff;
+  background-color: #f86c6b;
+  border-color: #f86c6b;
+}

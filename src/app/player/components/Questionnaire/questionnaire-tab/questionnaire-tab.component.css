@@ -1,0 +1,9 @@
+.k-checkbox:checked, .k-checkbox.k-checked {
+    border-color: #2b1e93;
+    color: white;
+    background-color: #288bdffc;
+}
+
+.k-checkbox:checked:focus, .k-checkbox.k-checked.k-focus {
+    box-shadow: 0 0 0 2px rgb(95 105 231 / 30%);
+}

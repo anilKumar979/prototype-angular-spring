@@ -1,0 +1,62 @@
+<div *ngIf="!loginDisplay">
+  <div class="row ">
+
+    <div class="wrapper ">
+        <div id="formContent">
+          <div class=" first">
+          <img src="assets/images/hqsft-logo.png" alt="Hcd" />
+            <p>HQ Software Consulting</p>
+          </div>
+
+          <button  type="submit" (click)="login()" class=" fourth k-button  k-primary ng-star-inserted"><i class="fa fa-sign-out" aria-hidden="true"></i> Login</button>
+          <div id="formFooter">
+            <a class="underlineHover" >Login to your account.</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</div>
+
+<div *ngIf="loginDisplay">
+  <!-- <p>Login successful!</p>
+    <p>Request your profile information by clicking Profile above.</p> -->
+  <div class="row">
+    <div class="col-xs-12 col-lg-9">
+      <h4><i className="fa fa-home" aria-hidden="true"></i>List</h4>
+    </div>
+
+    <div class="col-lg-2">
+      <a href="#" [routerLink]="['flash']" (click)="appliedNOFAForm(43)" class="k-button k-primary ng-star-inserted">+ Apply New Form</a>
+
+    </div>
+  </div>
+  <div class="row">
+    <table id="employee" class="table ">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>PROJECT NAME</th>
+          <th>CREATED DATE</th>
+  
+          <th width="120px">OPERATION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let org of orgList">
+          <td>{{ org.ID }}</td>
+          <td>{{ org.NAME }}</td>
+          <td>{{ org.CREATED_DATE }}</td>
+  
+          <td>
+            <!-- <button type="button" class="btn btn-info" matTooltip="Click Edit Button">Edit</button> -->
+            <!-- <a href="#" [routerLink]="['/player/edit/'+ org.ID]" class="btn btn-primary">Edit</a> -->
+            <a href="#" [routerLink]="['flash']" (click)="getOrgId(org.ORG_PARTY_ID)" class="k-button edit-btncss k-primary ng-star-inserted"><i className="fa fa-lock" aria-hidden="true"></i>Edit</a>
+            <!-- <button type="button" (click)="editOrg(org.ID)" class="btn btn-danger">Delete</button> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

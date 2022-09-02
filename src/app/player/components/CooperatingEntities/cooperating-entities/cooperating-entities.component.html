@@ -1,0 +1,86 @@
+<ng-container [formGroup]="cooperatingEntities">
+    <div>
+      <strong>
+        <h3 style="text-align:center">Cooperating Entities</h3>
+      </strong>
+    </div>
+    <kendo-panelbar>
+      <kendo-panelbar-item title="Cooperating Entities" [expanded]="true">
+        <ng-template kendoPanelBarContent>
+          <div class="row">
+            <div class="col-xs-12 col-lg-12">
+                <p>The Cooperating Entities tab allows the user to add or view/edit information previously entered. This tab is used to record the person/organization who was or will be contacted regarding this Project. To edit an existing contact, please select the name of the organization link. Changes made must be saved by clicking on the “Save Contact” button.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-lg-6">
+              <kendo-formfield>
+                <kendo-label [for]="co_org_name" text="Organization Name"></kendo-label>
+                <kendo-textbox formControlName="co_org_name" [(ngModel)]="co_org_name" #CoOrgName
+                  [clearButton]="true"></kendo-textbox>
+                <kendo-formerror>Organization Name is required</kendo-formerror>
+              </kendo-formfield>
+            </div>
+            <div class="col-xs-12 col-lg-6">
+                <kendo-formfield>
+                    <kendo-label [for]="role_contribution" text="Role/Contribution to Project"></kendo-label>
+                    <kendo-autocomplete #RoleContribution [data]="Rolecontribution" valueField="role"
+                        formControlName="role_contribution">
+                    </kendo-autocomplete>
+
+                    <kendo-formhint>Only Eroupean countries</kendo-formhint>
+                    <!-- <kendo-formerror *ngIf="!genralInformation.controls.country">Country is required
+                    </kendo-formerror> -->
+                </kendo-formfield>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-lg-6">
+              <kendo-formfield>
+                <kendo-label [for]="co_first_name" text="First Name"></kendo-label>
+                <kendo-textbox formControlName="co_first_name" #FirstName [clearButton]="true"
+                  [(ngModel)]="co_first_name"></kendo-textbox>
+                <kendo-formerror> First Name is required</kendo-formerror>
+                <!-- <kendo-formerror *ngIf="personalDetails.controls.email.errors?.email">Not a valid email format</kendo-formerror> -->
+              </kendo-formfield>
+            </div>       
+          
+            <div class="col-xs-12 col-lg-6">
+              <kendo-formfield>
+                <kendo-label [for]="co_last_name" text="Last Name"> </kendo-label>
+                <kendo-textbox formControlName="co_last_name" #LastName [clearButton]="true"
+                  [(ngModel)]="co_last_name">
+  
+                </kendo-textbox>
+                <kendo-formerror>Last Name is required</kendo-formerror>
+              </kendo-formfield>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-xs-12 col-lg-6">
+              <kendo-formfield>
+                <kendo-label [for]="co_cotect_ph" text="Phone"> </kendo-label>
+                <kendo-textbox formControlName="co_cotect_ph" #Phone [clearButton]="true" [(ngModel)]="co_cotect_ph">
+                </kendo-textbox>
+                <kendo-formerror>Phone is required</kendo-formerror>
+                <!-- <kendo-formhint>Allowed extensions are jpg, jpeg or png</kendo-formhint> -->
+              </kendo-formfield>
+            </div>
+  
+            <div class="col-xs-12 col-lg-6">
+              <kendo-formfield>
+                <kendo-label [for]="co_email" text="Email"> </kendo-label>
+                <kendo-textbox formControlName="co_email" #Email [clearButton]="true" [(ngModel)]="co_email">
+                </kendo-textbox>
+                <kendo-formerror>Email is required</kendo-formerror>
+                <!-- <kendo-formhint>Allowed extensions are jpg, jpeg or png</kendo-formhint> -->
+              </kendo-formfield>
+            </div>
+            </div>
+        </ng-template>
+      </kendo-panelbar-item>
+    </kendo-panelbar>
+  
+  </ng-container>
+  

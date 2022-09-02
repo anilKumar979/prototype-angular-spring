@@ -1,0 +1,68 @@
+<ng-container [formGroup]="attachmentTab">
+  <div>
+    <strong>
+      <h3 style="text-align:center">Attachments</h3>
+    </strong>
+  </div>
+  <kendo-panelbar>
+    <kendo-panelbar-item title="Pre-Submission Attachments" [expanded]="true">
+      <ng-template kendoPanelBarContent>
+
+        <div class="row">
+          <div class="col-xs-12 col-lg-6">
+            <kendo-formfield>
+              <kendo-label [for]="project_attach" text="Attachment"></kendo-label>
+              <!-- <kendo-textbox formControlName="project_attach" [(ngModel)]="project_attach" #ProjAttach
+                [clearButton]="true"></kendo-textbox> -->
+                <kendo-autocomplete
+                #senet
+                [data]="Attachments"
+                valueField="text"
+                formControlName="project_attach"               
+                [(ngModel)]="project_attach"
+                >
+                </kendo-autocomplete>
+            </kendo-formfield>
+          </div>
+          <div class="col-xs-12 col-lg-6">
+            <kendo-formfield>
+              <kendo-label [for]="attach_title" text="Attachment Title"></kendo-label>
+              <kendo-textbox formControlName="attach_title" [(ngModel)]="attach_title" #ProjAttach [clearButton]="true">
+              </kendo-textbox>
+            </kendo-formfield>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-lg-6">
+            <input type="file" (change)="uploadFile($event)">
+            <div>
+
+              <div *ngIf="fileName; else elseBlock">
+                <div class="filebord">
+                  <i class="fa fa-file" aria-hidden="true"></i>
+                  <a (click)="downloadFileCtrl(fileName.filename)" class="link"
+                    [href]="downloadFile">{{fileName.filename}}</a>
+
+                  <button class="close" (click)="deleteFileCtrl($event)"><i class="fa fa-close"
+                      aria-hidden="true"></i></button>
+
+                </div>
+              </div>
+              <ng-template #elseBlock></ng-template>
+            </div>
+          </div>
+          <div class="col-xs-12 col-lg-3">
+
+            <button class="btn btn-primary" (click)="onFIleUpload()">Upload</button>
+          </div>
+        </div>
+
+
+
+
+      </ng-template>
+    </kendo-panelbar-item>
+  </kendo-panelbar>
+</ng-container>

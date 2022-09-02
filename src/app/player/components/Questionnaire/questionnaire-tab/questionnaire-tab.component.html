@@ -1,0 +1,643 @@
+<ng-container [formGroup]="QuestionnaireTab">
+  <div>
+    <strong>
+      <h3 style="text-align:center">Questionnaire - Current Phase</h3>
+    </strong>
+  </div>
+  <kendo-panelbar>
+    <kendo-panelbar-item title="Questionnaire - Current Phase" [expanded]="true">
+      <ng-template kendoPanelBarContent>
+        <div class="row">
+          <div class="col-xs-12 col-lg-12">
+            <p>Cleanup and Abatement Request for Funding Form (PLEASE READ BEFORE APPLYING!)</p>
+            <p>This application is only for the Cleanup and Abatement Account (CAA) Program! In order to
+              receive CAA funding, all applicants must first discuss their project with the Division's Technical Staff
+              PRIOR to submitting an application.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-lg-12">
+            <kendo-formfield>
+              <kendo-label [for]="purpose_of_request" text="Purpose of request"></kendo-label>
+              <kendo-textbox formControlName="purpose_of_request" [(ngModel)]="purpose_of_request" #Request
+                [clearButton]="true"></kendo-textbox>
+              <kendo-formerror>Purpose of request</kendo-formerror>
+            </kendo-formfield>
+          </div>
+
+          <div class="col-xs-12 col-lg-12">
+            <kendo-formfield>
+              <kendo-label [for]="background" text="Background"></kendo-label>
+              <kendo-textbox formControlName="background" [(ngModel)]="background" #Back [clearButton]="true">
+              </kendo-textbox>
+              <!-- <kendo-formerror>Purpose of request</kendo-formerror> -->
+            </kendo-formfield>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-lg-12">
+          <kendo-formfield showHints="initial">
+            <div class="k-form-field-checkbox-wrap">
+              <input kendoCheckBox type="checkbox" formControlName="has_any_portion"
+                (change)="has_any_portionFun($event)" [indeterminate]="true" [(ngModel)]="HasAnyPortion" />
+              <kendo-label class="k-checkbox-label"
+                text="Has any portion of this project previously received funding through the Cleanup and Abatement account? If so, please provide the funding amount approved, Cleanup and Abatement #, and a brief description of the project.">
+              </kendo-label>
+
+            </div>
+          </kendo-formfield>
+          <div *ngIf="HasAnyPortion; else elseBlock">
+            <div class="row">
+              <div class="col-xs-12 col-lg-6">
+                <kendo-formfield>
+                  <kendo-label [for]="cleanup_abatement" text="Answer"></kendo-label>
+                  <kendo-textbox formControlName="cleanup_abatement" [(ngModel)]="cleanup_abatement" #CleanUp
+                    [clearButton]="true">
+                  </kendo-textbox>
+                  <kendo-formerror>Purpose of request</kendo-formerror>
+                </kendo-formfield>
+              </div>
+              <div class="col-xs-12 col-lg-6">
+                <kendo-formfield>
+                  <kendo-label [for]="has_any_portion_area" text="Answer"></kendo-label>
+                  <kendo-textbox formControlName="has_any_portion_area" [(ngModel)]="has_any_portion_area" #PortionArea
+                    [clearButton]="true">
+                  </kendo-textbox>
+                </kendo-formfield>
+              </div>
+            </div>
+          </div>
+          <ng-template #elseBlock></ng-template>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-lg-12">
+            <p><strong>Impact to community or surrounding areas with regards to water quality</strong></p>
+          </div>
+          <div class="col-xs-12 col-lg-12">
+            <kendo-formfield>
+              <kendo-label [for]="community_impact_area" text="Answer"></kendo-label>
+              <kendo-textbox formControlName="community_impact_area" [(ngModel)]="community_impact_area"
+                #CommunityImpact [clearButton]="true">
+              </kendo-textbox>
+            </kendo-formfield>
+          </div>
+
+          <div class="col-xs-12 col-lg-12">
+            <p><strong>What waste is being addressed by this project?</strong></p>
+          </div>
+          <div class="col-xs-12 col-lg-12">
+            <kendo-formfield>
+              <kendo-label [for]="project_waste_area" text="Answer"></kendo-label>
+              <kendo-textbox formControlName="project_waste_area" [(ngModel)]="project_waste_area" #ProjectWest
+                [clearButton]="true">
+              </kendo-textbox>
+            </kendo-formfield>
+          </div>
+          <div class="col-xs-12 col-lg-12">
+            <p><strong>How do you plan to measure the water quality effectiveness of this project?</strong></p>
+          </div>
+          <div class="col-xs-12 col-lg-12">
+            <kendo-formfield>
+              <kendo-label [for]="water_quality_area" text="Answer"></kendo-label>
+              <kendo-textbox formControlName="water_quality_area" [(ngModel)]="water_quality_area" #ProjectWest
+                [clearButton]="true">
+              </kendo-textbox>
+            </kendo-formfield>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <kendo-formfield showHints="initial">
+            <div class="k-form-field-checkbox-wrap">
+              <input kendoCheckBox type="checkbox" formControlName="project_fund" (change)="project_fundFun($event)"
+                [indeterminate]="true" [(ngModel)]="ProjectFund" />
+              <kendo-label class="k-checkbox-label"
+                text="Are other funds available for this project? If yes, please describe.">
+              </kendo-label>
+
+            </div>
+          </kendo-formfield>
+
+          <div *ngIf="ProjectFund; else elseBlock">
+            <div class="row">
+              <div class="col-xs-12 col-lg-6">
+                <kendo-formfield>
+                  <kendo-label [for]="project_fund_area" text="Answer"></kendo-label>
+                  <kendo-textbox formControlName="project_fund_area" [(ngModel)]="project_fund_area" #FundArea
+                    [clearButton]="true">
+                  </kendo-textbox>
+                  <kendo-formerror>Purpose of request</kendo-formerror>
+                </kendo-formfield>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-lg-12">
+            <kendo-formfield showHints="initial">
+              <div class="k-form-field-checkbox-wrap">
+                <input kendoCheckBox type="checkbox" formControlName="regional_bord_fund"
+                  (change)="regional_bord_fundFun($event)" [indeterminate]="true" [(ngModel)]="RegionalBord" />
+                <kendo-label class="k-checkbox-label"
+                  text="Will any of these funds be used for Regional Board oversight? If yes, how much? Typically, CAA funds do not cover Regional Board oversight costs.">
+                </kendo-label>
+
+              </div>
+            </kendo-formfield>
+
+          </div>
+          <div *ngIf="RegionalBord; else elseBlock">
+            <div class="row">
+              <div class="col-xs-12 col-lg-6">
+                <kendo-formfield>
+                  <kendo-label [for]="regional_bord_fund_ans" text="Answer"></kendo-label>
+                  <kendo-textbox formControlName="regional_bord_fund_ans" [(ngModel)]="regional_bord_fund_ans"
+                    #ReegionalFundAns [clearButton]="true">
+                  </kendo-textbox>
+
+                </kendo-formfield>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-lg-12">
+          <p><strong>List any responsible party</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-12">
+          <kendo-formfield>
+            <kendo-label [for]="responsible_party_area" text="Answer"></kendo-label>
+            <kendo-textbox formControlName="responsible_party_area" [(ngModel)]="responsible_party_area"
+              #ResponsibleParty [clearButton]="true">
+            </kendo-textbox>
+          </kendo-formfield>
+        </div>
+
+
+        <div class="col-xs-12 col-lg-12">
+          <p><strong>List any responsible party</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-12">
+
+          <ul>
+            <li>
+              <kendo-formfield showHints="initial">
+                <div class="k-form-field-checkbox-wrap">
+                  <input kendoCheckBox type="checkbox" formControlName="preference_1" (change)="preference_1Fun($event)"
+                    [indeterminate]="true" [(ngModel)]="preference_1" />
+                  <kendo-label class="k-checkbox-label"
+                    text=" Preference 1: Emergency Cleanup Projects - Public Safety.">
+                  </kendo-label>
+                </div>
+              </kendo-formfield>
+            </li>
+            <li>
+              <kendo-formfield showHints="initial">
+                <div class="k-form-field-checkbox-wrap">
+                  <input kendoCheckBox type="checkbox" formControlName="preference_2" (change)="preference_2Fun($event)"
+                    [indeterminate]="true" [(ngModel)]="preference_2" />
+                  <kendo-label class="k-checkbox-label"
+                    text="Preference 2: Projects that address Disadvantaged Communities Environmental Justice Infastructure needs.">
+                  </kendo-label>
+                </div>
+              </kendo-formfield>
+            </li>
+            <li>
+              <kendo-formfield showHints="initial">
+                <div class="k-form-field-checkbox-wrap">
+                  <input kendoCheckBox type="checkbox" formControlName="preference_3" (change)="preference_3Fun($event)"
+                    [indeterminate]="true" [(ngModel)]="preference_3" />
+                  <kendo-label class="k-checkbox-label"
+                    text="Preference 3: Cleanup and/or abatement of 2006-listed water bodies that will help to implement a Total Maximum Daily Load (TMDL).">
+                  </kendo-label>
+                </div>
+              </kendo-formfield>
+            </li>
+            <li>
+              <kendo-formfield showHints="initial">
+                <div class="k-form-field-checkbox-wrap">
+                  <input kendoCheckBox type="checkbox" formControlName="preference_4" (change)="preference_4Fun($event)"
+                    [indeterminate]="true" [(ngModel)]="preference_4" />
+                  <kendo-label class="k-checkbox-label"
+                    text="Preference 4: Cleanup and/or abatement of non-point source legacy pollutant (i.e Stormwater)when the source(s) of the pollution have been mitigated.">
+                  </kendo-label>
+                </div>
+              </kendo-formfield>
+            </li>
+            <li>
+              <kendo-formfield showHints="initial">
+                <div class="k-form-field-checkbox-wrap">
+                  <input kendoCheckBox type="checkbox" formControlName="preference_5" (change)="preference_5Fun($event)"
+                    [indeterminate]="true" [(ngModel)]="preference_5" />
+                  <kendo-label class="k-checkbox-label"
+                    text="Preference 5: Cleanup and/or abatement of pollution in high-use groundwater basins.">
+                  </kendo-label>
+                </div>
+              </kendo-formfield>
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="col-xs-12 col-lg-12">
+          <p>(continued)</p>
+          <p>What Program Preference(s) does your project fulfill?</p>
+        </div>
+        <div class="col-xs-12 col-lg-12">
+
+          <ul>
+            <li>
+              <kendo-formfield showHints="initial">
+                <div class="k-form-field-checkbox-wrap">
+                  <input kendoCheckBox type="checkbox" formControlName="preference_6" (change)="preference_6Fun($event)"
+                    [indeterminate]="true" [(ngModel)]="preference_6" />
+                  <kendo-label class="k-checkbox-label"
+                    text="Preference 6: Cleanup and/or abatement of contaminated site when the viable responsible party has not been identified.">
+                  </kendo-label>
+                </div>
+              </kendo-formfield>
+            </li>
+            <li>
+              <kendo-formfield showHints="initial">
+                <div class="k-form-field-checkbox-wrap">
+                  <input kendoCheckBox type="checkbox" formControlName="preference_7" (change)="preference_7Fun($event)"
+                    [indeterminate]="true" [(ngModel)]="preference_7" />
+                  <kendo-label class="k-checkbox-label"
+                    text="Preference 7: Projects that promote habitat restoration through non-profit organizations that collaborate with the Regional Water Boards and encourage public outreach and education.">
+                  </kendo-label>
+                </div>
+              </kendo-formfield>
+            </li>
+            <li>
+              <kendo-formfield showHints="initial">
+                <div class="k-form-field-checkbox-wrap">
+                  <input kendoCheckBox type="checkbox" formControlName="preference_8" (change)="preference_8Fun($event)"
+                    [indeterminate]="true" [(ngModel)]="preference_8" />
+                  <kendo-label class="k-checkbox-label"
+                    text="Preference 8: Completion of a study/plan and/or monitoring addressing significant Statewide water quality problems.">
+                  </kendo-label>
+                </div>
+              </kendo-formfield>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="col-xs-12 col-lg-12">
+          <p>What Strategic Plan Goal(s) does your project fulfill?</p>
+        </div>
+        <div class="col-xs-12 col-lg-12">
+
+          <ul>
+            <li>
+              <kendo-formfield showHints="initial">
+                <div class="k-form-field-checkbox-wrap">
+                  <input kendoCheckBox type="checkbox" formControlName="goal_1" (change)="goal_1Fun($event)"
+                    [indeterminate]="true" [(ngModel)]="goal_1" />
+                  <kendo-label class="k-checkbox-label"
+                    text="Goal 1: Implement strategies to fully support the beneficial uses for all 2006-listed water bodies by 2030.">
+                  </kendo-label>
+                </div>
+              </kendo-formfield>
+            </li>
+            <li>
+              <kendo-formfield showHints="initial">
+                <div class="k-form-field-checkbox-wrap">
+                  <input kendoCheckBox type="checkbox" formControlName="goal_2" (change)="goal_2Fun($event)"
+                    [indeterminate]="true" [(ngModel)]="goal_2" />
+                  <kendo-label class="k-checkbox-label"
+                    text="Goal 2: Improve and protect groundwater quality in high-use basins by 2030.">
+                  </kendo-label>
+                </div>
+              </kendo-formfield>
+            </li>
+            <li>
+              <kendo-formfield showHints="initial">
+                <div class="k-form-field-checkbox-wrap">
+                  <input kendoCheckBox type="checkbox" formControlName="goal_3" (change)="goal_3Fun($event)"
+                    [indeterminate]="true" [(ngModel)]="goal_3" />
+                  <kendo-label class="k-checkbox-label"
+                    text="Goal 3: Increase sustainable local water supplies available for meeting existing and future beneficial uses by 1,725,000 acre-feet per year by 2015, and ensure adequate flows for fish and wildlife habitat.">
+                  </kendo-label>
+                </div>
+              </kendo-formfield>
+            </li>
+            <li>
+              <kendo-formfield showHints="initial">
+                <div class="k-form-field-checkbox-wrap">
+                  <input kendoCheckBox type="checkbox" formControlName="goal_4" (change)="goal_4Fun($event)"
+                    [indeterminate]="true" [(ngModel)]="goal_4" />
+                  <kendo-label class="k-checkbox-label"
+                    text="Goal 4: To comprehensively address water quality protection and restoration, and the relationship between water supply and water quality, and describe the connections between water quality, water quantity, and climate change, throughout California's water planning processes.">
+                  </kendo-label>
+                </div>
+              </kendo-formfield>
+            </li>
+            <li>
+              <kendo-formfield showHints="initial">
+                <div class="k-form-field-checkbox-wrap">
+                  <input kendoCheckBox type="checkbox" formControlName="goal_5" (change)="goal_5Fun($event)"
+                    [indeterminate]="true" [(ngModel)]="goal_5" />
+                  <kendo-label class="k-checkbox-label"
+                    text="Goal 5: Improve transparency and accountability by ensuring that Water Board goals and actions are clear and accessible, by demonstrating and explaining results achieved with respect to the goals and resources available, by enhancing and improving accessibility of data and information, and by encouraging the creating of organizations or cooperative agreements that advance this goal.">
+                  </kendo-label>
+                </div>
+              </kendo-formfield>
+            </li>
+            <p>(continued)</p>
+            <p>What Strategic Plan Goal(s) does your project fulfill?</p>
+            <li>
+              <kendo-formfield showHints="initial">
+                <div class="k-form-field-checkbox-wrap">
+                  <input kendoCheckBox type="checkbox" formControlName="goal_6" (change)="goal_6Fun($event)"
+                    [indeterminate]="true" [(ngModel)]="goal_6" />
+                  <kendo-label class="k-checkbox-label"
+                    text="Goal 6: Enhance consistency across the Water Boards to ensure our processes are effective, efficient, and predictable, and to promote fair and equitable application of laws, regulations, policies, and procedures.">
+                  </kendo-label>
+                </div>
+              </kendo-formfield>
+            </li>
+            <li>
+              <kendo-formfield showHints="initial">
+                <div class="k-form-field-checkbox-wrap">
+                  <input kendoCheckBox type="checkbox" formControlName="goal_7" (change)="goal_7Fun($event)"
+                    [indeterminate]="true" [(ngModel)]="goal_7" />
+                  <kendo-label class="k-checkbox-label"
+                    text="Goal 7: Ensure that the Water Boards have access to information and expertise, including employees with appropriate knowledge and skills, needed to effectively and efficiently carry out the Water Boards' mission.">
+                  </kendo-label>
+                </div>
+              </kendo-formfield>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="col-xs-12 col-lg-12">
+          <p>Your project is consistent with what Water Code Section(s)?</p>
+        </div>
+        <div class="col-xs-12 col-lg-12">
+
+          <ul>
+            <li>
+              <kendo-formfield showHints="initial">
+                <div class="k-form-field-checkbox-wrap">
+                  <input kendoCheckBox type="checkbox" formControlName="section_13442"
+                    (change)="section_13442Fun($event)" [indeterminate]="true" [(ngModel)]="section_13442" />
+                  <kendo-label class="k-checkbox-label"
+                    text="Section 13442: State Water Board may order moneys to be paid from the CAA to a public agency with authority to cleanup or abate the effects of waste in order to assist it in cleaning up the waste or abating its effects on the waters of the state; or">
+                  </kendo-label>
+                </div>
+              </kendo-formfield>
+            </li>
+            <li>
+              <kendo-formfield showHints="initial">
+                <div class="k-form-field-checkbox-wrap">
+                  <input kendoCheckBox type="checkbox" formControlName="section_13443"
+                    (change)="section_13443Fun($event)" [indeterminate]="true" [(ngModel)]="section_13443" />
+                  <kendo-label class="k-checkbox-label"
+                    text="Section 13443: State Water Board may order moneys to be paid from the account to the Regional Water Board to assist it in attempting to remedy a significant unforeseen water pollution problem, posing an actual or potential public health threat, or is overseeing and tracking the implementation of a supplemental environmental project required as a condition of an order imposing administrative civil liability.">
+                  </kendo-label>
+                </div>
+              </kendo-formfield>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="col-xs-12 col-lg-12">
+          <p>CEQA must be completed before the project can begin. Please choose the anticipate method of CEQA compliance
+            below</p>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-lg-3">
+            <kendo-formfield showHints="initial">
+              <div class="k-form-field-checkbox-wrap">
+                <input kendoCheckBox type="checkbox" formControlName="categorial_exempt"
+                  (change)="categorial_exemptFun($event)" [indeterminate]="true" [(ngModel)]="categorial_exempt" />
+                <kendo-label class="k-checkbox-label" text="Categorical Exemption">
+                </kendo-label>
+              </div>
+            </kendo-formfield>
+          </div>
+
+          <div class="col-xs-12 col-lg-3">
+            <kendo-formfield showHints="initial">
+              <div class="k-form-field-checkbox-wrap">
+                <input kendoCheckBox type="checkbox" formControlName="negative_declar"
+                  (change)="negative_declarFun($event)" [indeterminate]="true" [(ngModel)]="negative_declar" />
+                <kendo-label class="k-checkbox-label" text="Negative Declaration">
+                </kendo-label>
+              </div>
+            </kendo-formfield>
+          </div>
+          <div class="col-xs-12 col-lg-3">
+            <kendo-formfield showHints="initial">
+              <div class="k-form-field-checkbox-wrap">
+                <input kendoCheckBox type="checkbox" formControlName="mitigated" (change)="mitigatedFun($event)"
+                  [indeterminate]="true" [(ngModel)]="mitigated" />
+                <kendo-label class="k-checkbox-label" text="Mitigated Negative Declaration">
+                </kendo-label>
+              </div>
+            </kendo-formfield>
+          </div>
+          <div class="col-xs-12 col-lg-3">
+            <kendo-formfield showHints="initial">
+              <div class="k-form-field-checkbox-wrap">
+                <input kendoCheckBox type="checkbox" formControlName="environmental_impact"
+                  (change)="environmental_impactFun($event)" [indeterminate]="true"
+                  [(ngModel)]="environmental_impact" />
+                <kendo-label class="k-checkbox-label" text="Environmental Impact Report">
+                </kendo-label>
+              </div>
+            </kendo-formfield>
+          </div>
+        </div>
+        <div class="col-xs-12 col-lg-12">
+          <p>Indicate the status of the environmental document in the drop box below. If the CEQA document is older than
+            5-years, please choose "Older than 5-yrs". Provide the estimated or known completion date in the second box,
+            and if the CEQA document is complete, the Clearinghouse number. Example (clearinghouse number: 2009045843,
+            document approved: 02/09/09)</p>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-lg-3">
+            <kendo-formfield showHints="initial">
+              <div class="k-form-field-checkbox-wrap">
+                <input kendoCheckBox type="checkbox" formControlName="havent_start" (change)="havent_startFun($event)"
+                  [indeterminate]="true" [(ngModel)]="havent_start" />
+                <kendo-label class="k-checkbox-label" text="Haven't Started">
+                </kendo-label>
+              </div>
+            </kendo-formfield>
+          </div>
+
+          <div class="col-xs-12 col-lg-3">
+            <kendo-formfield showHints="initial">
+              <div class="k-form-field-checkbox-wrap">
+                <input kendoCheckBox type="checkbox" formControlName="in_progress" (change)="in_progressFun($event)"
+                  [indeterminate]="true" [(ngModel)]="in_progress" />
+                <kendo-label class="k-checkbox-label" text="In Progress">
+                </kendo-label>
+              </div>
+            </kendo-formfield>
+          </div>
+          <div class="col-xs-12 col-lg-3">
+            <kendo-formfield showHints="initial">
+              <div class="k-form-field-checkbox-wrap">
+                <input kendoCheckBox type="checkbox" formControlName="complete" (change)="completeFun($event)"
+                  [indeterminate]="true" [(ngModel)]="complete" />
+                <kendo-label class="k-checkbox-label" text="Complete">
+                </kendo-label>
+              </div>
+            </kendo-formfield>
+          </div>
+          <div class="col-xs-12 col-lg-3">
+            <kendo-formfield showHints="initial">
+              <div class="k-form-field-checkbox-wrap">
+                <input kendoCheckBox type="checkbox" formControlName="older_then_5" (change)="older_then_5Fun($event)"
+                  [indeterminate]="true" [(ngModel)]="olderthen5" />
+                <kendo-label class="k-checkbox-label" text="Older than 5-years">
+                </kendo-label>
+              </div>
+            </kendo-formfield>
+          </div>
+          <div *ngIf="olderthen5; else elseBlock">
+            <div class="row">
+              <div class="col-xs-12 col-lg-6">
+                <kendo-formfield>
+                  <kendo-label [for]="indecate_status_area" text="Answer"></kendo-label>
+                  <kendo-textbox formControlName="indecate_status_area" [(ngModel)]="indecate_status_area"
+                    #IndicateStatus [clearButton]="true">
+                  </kendo-textbox>
+                  <kendo-formerror>Purpose of request</kendo-formerror>
+                </kendo-formfield>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-lg-12">
+          <p>If exempt, which exemption does your project meet?</p>
+        </div>
+        <div class="col-xs-12 col-lg-12">
+          <kendo-formfield showHints="initial">
+            <div class="k-form-field-checkbox-wrap">
+              <input kendoCheckBox type="checkbox" formControlName="consists_15301" (change)="consists_15301Fun($event)"
+                [indeterminate]="true" [(ngModel)]="consists_15301" />
+              <kendo-label class="k-checkbox-label"
+                text="15301 Existing Facilities: Consists of the operation, repair, maintenance, permitting, leasing, licensing, or minor alteration of existing public or private structures, facilities, mechanical equipment, or topographical features, inviliving negligible or no expansion of use beyond that existing at the time of the lead agency's determination.">
+              </kendo-label>
+            </div>
+          </kendo-formfield>
+        </div>
+        <div class="col-xs-12 col-lg-12">
+          <kendo-formfield showHints="initial">
+            <div class="k-form-field-checkbox-wrap">
+              <input kendoCheckBox type="checkbox" formControlName="consists_15302" (change)="consists_15302Fun($event)"
+                [indeterminate]="true" [(ngModel)]="consists_15302" />
+              <kendo-label class="k-checkbox-label"
+                text="15302 Replacement of Reconstruction: Consists of replacement or reconstruction of existing structures and facilities where the new structure will be located on the same site as the structure replaced and will have substantially the same purpose and capacity as the structure replaced..">
+              </kendo-label>
+            </div>
+          </kendo-formfield>
+        </div>
+
+        <div class="col-xs-12 col-lg-12">
+          <kendo-formfield showHints="initial">
+            <div class="k-form-field-checkbox-wrap">
+              <input kendoCheckBox type="checkbox" formControlName="consists_15303" (change)="consists_15303Fun($event)"
+                [indeterminate]="true" [(ngModel)]="consists_15303" />
+              <kendo-label class="k-checkbox-label"
+                text="15303 New Construction or Conversion of Small Structure: Consists of construction and location of limited numbers of new, small facilities or structures; installation of small new equipment and facilities in small structures; and the conversion of existing small structures from one use to another where only minor modifications are made in the exterior of the stuctures.">
+              </kendo-label>
+            </div>
+          </kendo-formfield>
+        </div>
+
+        <div class="col-xs-12 col-lg-12">
+          <kendo-formfield showHints="initial">
+            <div class="k-form-field-checkbox-wrap">
+              <input kendoCheckBox type="checkbox" formControlName="consists_15304" (change)="consists_15304Fun($event)"
+                [indeterminate]="true" [(ngModel)]="consists_15304" />
+              <kendo-label class="k-checkbox-label"
+                text="15304 Minor Alteration to Land: Consists of minor public or private alteration in the condition of land, water and/or vegitation which do not involove removal of healthy, mature, scenic trees except for forestry or agricultural purposes.">
+              </kendo-label>
+            </div>
+          </kendo-formfield>
+        </div>
+
+        <div class="col-xs-12 col-lg-12">
+          <kendo-formfield showHints="initial">
+            <div class="k-form-field-checkbox-wrap">
+              <input kendoCheckBox type="checkbox" formControlName="other_list" (change)="other_listFun($event)"
+                [indeterminate]="true" [(ngModel)]="otherlist" />
+              <kendo-label class="k-checkbox-label" text="Other">
+              </kendo-label>
+            </div>
+          </kendo-formfield>
+        </div>
+
+        <div *ngIf="otherlist; else elseBlock">
+          <div class="row">
+            <div class="col-xs-12 col-lg-12">
+              <kendo-formfield>
+                <kendo-label [for]="consists_area" text="Answer"></kendo-label>
+                <kendo-textbox formControlName="consists_area" [(ngModel)]="consists_area" #ConsistArea
+                  [clearButton]="true">
+                </kendo-textbox>
+              
+              </kendo-formfield>
+            </div>
+          </div>
+          <div class="row">
+            <p>Please provide an estimated project budget broken down by State Fiscal Year (SFY). (Note: The SFY begins
+              in July 1st and ends June 30th). This should be done for each SFY projected out to the end of the project
+              term.</p>
+            <p>Example: Project XYZ is a three year project costing $300,000. So SFY 10/11 would be for $100,000; SFY
+              11/12 would be for $100,000 and SFY 12/13 would be for $100,000.</p>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-lg-12">
+              <kendo-formfield>
+                <kendo-label [for]="estimated_area" text="Answer"></kendo-label>
+                <kendo-textbox formControlName="estimated_area" [(ngModel)]="estimated_area" #ConsistArea
+                  [clearButton]="true">
+                </kendo-textbox>
+               
+              </kendo-formfield>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-lg-12">
+          <kendo-formfield showHints="initial">
+            <div class="k-form-field-checkbox-wrap">
+              <input kendoCheckBox type="checkbox" formControlName="does_your_proj" (change)="does_your_projFun($event)"
+                [indeterminate]="true" [(ngModel)]="does_your_proj" />
+              <kendo-label class="k-checkbox-label"
+                text="Does your project have Regional Board support (i.e. Resolution or Letter from Executive Officer)? If not, please provide an explanation.">
+              </kendo-label>
+            </div>
+          </kendo-formfield>
+        </div>
+
+        <div class="col-xs-12 col-lg-12">
+          <kendo-formfield showHints="initial">
+            <div class="k-form-field-checkbox-wrap">
+              <input kendoCheckBox type="checkbox" formControlName="have_you_attach" (change)="have_you_attachFun($event)"
+                [indeterminate]="true" [(ngModel)]="have_you_attach" />
+              <kendo-label class="k-checkbox-label"
+                text="Have you attached a detailed Scope of Work, Project Budget, and Schedule with your application? If not, please provide an explanation.">
+              </kendo-label>
+            </div>
+          </kendo-formfield>
+        </div>
+
+
+      </ng-template>
+    </kendo-panelbar-item>
+  </kendo-panelbar>
+</ng-container>

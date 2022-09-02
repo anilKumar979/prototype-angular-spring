@@ -1,0 +1,242 @@
+<!-- <p>projectmanage works!</p> -->
+
+<ng-container [formGroup]="projectmanage">
+    <kendo-panelbar>
+        <kendo-panelbar-item title="Applicant Information" [expanded]="true">
+            <ng-template kendoPanelBarContent>
+                <div class="custom-template">
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-12">
+                            <p>The Project Management tab allows the user to enter or edit the project managements’
+                                roles. The
+                                applicant and person submitting information is pulled from other areas of the
+                                application process.</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-3">
+                            <p>Name:</p>
+                        </div>
+
+                        <div class="col-xs-12 col-lg-6">
+                            <p>Coachella Valley Housing Coalition</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-3">
+                            <p>Department:</p>
+                        </div>
+                        <div class="col-xs-12 col-lg-6">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-3">
+                            <p>Address:</p>
+                        </div>
+                        <div class="col-xs-12 col-lg-6">
+                            <p>45-701 Monroe Street Ste G Indio, CA , 92201</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-12">
+                            <p>To edit Applicant information, click on the “Update Organization Profile” on the Main
+                                Menu. If
+                                submitting on behalf of another Organization, any edits to the Applicant organization
+                                profile must be
+                                submitted via email (FAAST_admin@waterboards.ca.gov).</p>
+                        </div>
+                    </div>
+
+                </div>
+            </ng-template>
+        </kendo-panelbar-item>
+
+        <kendo-panelbar-item title="Person Submitting Information" [expanded]="true">
+            <ng-template kendoPanelBarContent>
+                <div class="custom-template">
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-3">
+                            <p>Submitter Name:</p>
+                        </div>
+                        <div class="col-xs-12 col-lg-6">
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-xs-12 col-lg-3">
+                            <p>Phone:</p>
+                        </div>
+                        <div class="col-xs-12 col-lg-3">
+                            <p></p>
+                        </div>
+                        <div class="col-xs-12 col-lg-3">
+                            <p>Fax:</p>
+                        </div>
+                        <div class="col-xs-12 col-lg-3">
+                            <p></p>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-3">
+                            <p>Submitter Email:</p>
+                        </div>
+                        <div class="col-xs-12 col-lg-6">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-12">
+                            <p>To edit the information contained here, click on the “Update User Profile” on the Main
+                                Menu.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </ng-template>
+        </kendo-panelbar-item>
+
+        <!-- <div class ="container"> -->
+            <kendo-panelbar-item title="PROJECT DIRECTOR AND PROJECT MANAGER" [expanded]="true">
+                <ng-template kendoPanelBarContent>
+                  
+                  <div class="custom-template">
+                    <p>Enter the contact information for the Project Director (including the confirm email), then:</p>
+                    <div class="wrapper tableFixHead devbudget">
+        <table class="table overviewtable table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Management Role</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Phone</th>
+                    <th>Fax</th>
+                    <th>Email</th>
+                    <th>Confirm Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Project Director</td>
+                    <td>
+                        <kendo-formfield>
+
+                            <!-- <input formControlName="firstName"
+              
+               /> -->
+                            <kendo-textbox formControlName="pd_first_name" [(ngModel)]="pd_first_name" #FirstName
+                                [clearButton]="true"></kendo-textbox>
+                            <!-- <kendo-formerror>Username is required</kendo-formerror> -->
+
+
+                        </kendo-formfield>
+
+                    </td>
+                    <td>
+                        <kendo-formfield>
+                            <!-- <input kendoTextBox name="pd_last_name"  #LastName required /> -->
+                            <kendo-textbox formControlName="pd_last_name" [(ngModel)]="pd_last_name" #FirstName
+                                [clearButton]="true"></kendo-textbox>
+                        </kendo-formfield>
+
+                    </td>
+                    <td>
+                        <kendo-formfield>
+                            <!-- <input kendoTextBox name="pd_phone" #phone required /> -->
+                            <kendo-textbox formControlName="pd_phone" [(ngModel)]="pd_phone" #FirstName
+                                [clearButton]="true"></kendo-textbox>
+                        </kendo-formfield>
+                    </td>
+                    <td>
+                        <kendo-formfield>
+                            <!-- <input kendoTextBox name="pd_fax" #Fax required /> -->
+                            <kendo-textbox formControlName="pd_fax" [(ngModel)]="pd_fax" #FirstName
+                                [clearButton]="true"></kendo-textbox>
+                        </kendo-formfield>
+                    </td>
+                    <td>
+                        <kendo-formfield>
+                            <!-- <input kendoTextBox name="pd_email" #email required /> -->
+                            <kendo-textbox formControlName="pd_email" [(ngModel)]="pd_email" #FirstName
+                                [clearButton]="true"></kendo-textbox>
+                        </kendo-formfield>
+                    </td>
+                    <td>
+                        <kendo-formfield>
+                            <!-- <input kendoTextBox name="pd_cemail"  #cemail required /> -->
+                            <kendo-textbox formControlName="pd_cemail" [(ngModel)]="pd_cemail" #FirstName
+                                [clearButton]="true"></kendo-textbox>
+                        </kendo-formfield>
+                    </td>
+
+
+                </tr>
+
+                <tr>
+                    <td>Project Manager</td>
+                    <td>
+                        <kendo-formfield>
+                            <!-- <input kendoTextBox name="pm_first_name"  #FirstName required /> -->
+                            <kendo-textbox formControlName="pm_first_name" [(ngModel)]="pm_first_name" #FirstName
+                                [clearButton]="true"></kendo-textbox>
+                        </kendo-formfield>
+
+                    </td>
+                    <td>
+                        <kendo-formfield>
+                            <!-- <input kendoTextBox name="pm_last_name"  #LastName required /> -->
+                            <kendo-textbox formControlName="pm_last_name" [(ngModel)]="pm_last_name" #FirstName
+                                [clearButton]="true"></kendo-textbox>
+                        </kendo-formfield>
+
+                    </td>
+                    <td>
+                        <kendo-formfield>
+                            <!-- <input kendoTextBox name="pm_phone"  #phone required /> -->
+                            <kendo-textbox formControlName="pm_phone" [(ngModel)]="pm_phone" #FirstName
+                                [clearButton]="true"></kendo-textbox>
+                        </kendo-formfield>
+                    </td>
+                    <td>
+                        <kendo-formfield>
+                            <!-- <input kendoTextBox name="pm_fax"  #Fax required /> -->
+                            <kendo-textbox formControlName="pm_fax" [(ngModel)]="pm_fax" #FirstName
+                                [clearButton]="true"></kendo-textbox>
+                        </kendo-formfield>
+                    </td>
+                    <td>
+                        <kendo-formfield>
+                            <!-- <input kendoTextBox name="pm_email"  #email required /> -->
+                            <kendo-textbox formControlName="pm_email" [(ngModel)]="pm_email" #FirstName
+                                [clearButton]="true"></kendo-textbox>
+                        </kendo-formfield>
+                    </td>
+                    <td>
+                        <kendo-formfield>
+                            <!-- <input kendoTextBox name="pm_cemail"  #cemail required /> -->
+                            <kendo-textbox formControlName="pm_cemail" [(ngModel)]="pm_cemail" #FirstName
+                                [clearButton]="true"></kendo-textbox>
+                        </kendo-formfield>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</ng-template>
+</kendo-panelbar-item>
+
+
+
+    </kendo-panelbar>
+
+
+</ng-container>
+<!-- </div> -->

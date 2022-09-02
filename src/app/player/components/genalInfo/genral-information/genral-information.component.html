@@ -1,0 +1,144 @@
+<ng-container [formGroup]="genralInformation">
+
+    <div>
+        <strong>
+            <h3 style="text-align:center">Genral Information</h3>
+        </strong>
+    </div>
+    <div *ngIf="ShowHide; else elseBlock"></div>
+    <ng-template #elseBlock>
+        <div class="loader-wrapper">
+            <div class="loader"></div>
+
+        </div>
+    </ng-template>
+    <kendo-panelbar>
+        <kendo-panelbar-item title="Genral Information" [expanded]="true">
+            <ng-template kendoPanelBarContent>
+                <div class="row">
+                    <div class="col-xs-12 col-lg-12">
+                        <p>The “General Information” tab allows the user to enter a project title, project description,
+                            and location information for the project.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-lg-3">
+                        <p><strong>RFP Title:</strong></p>
+                    </div>
+
+                    <div class="col-xs-12 col-lg-6">
+                        <p>Cleanup and Abatement Account</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-lg-3">
+                        <p><strong>Applicant Organization:</strong></p>
+                    </div>
+
+                    <div class="col-xs-12 col-lg-6">
+                        <p>Coachella Valley Housing Coalition</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-lg-3">
+                        <p><strong>Applicant Division: </strong></p>
+                    </div>
+
+                    <div class="col-xs-12 col-lg-6">
+                        <p>Outreach</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-lg-3">
+                        <p><strong>Submitting Organization: </strong></p>
+                    </div>
+
+                    <div class="col-xs-12 col-lg-6">
+                        <p>Transparent IT</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-lg-3">
+                        <p><strong>Submitting Division: </strong></p>
+                    </div>
+
+                    <div class="col-xs-12 col-lg-6">
+                        <p>Outreach</p>
+                    </div>
+                </div>
+
+
+                <!-- <kendo-formfield>
+                    <kendo-label [for]="fullName" text="Full Name"></kendo-label>
+                    <kendo-textbox formControlName="fullName" #fullName [clearButton]="true"></kendo-textbox>
+                    <kendo-formerror>Full Name is required</kendo-formerror>
+                </kendo-formfield> -->
+                <div class="row">
+                    <div class="col-xs-12 col-lg-6">
+                        <kendo-formfield>
+                            <kendo-label [for]="title" text="Project Title"></kendo-label>
+                            <kendo-textbox formControlName="title" [(ngModel)]="project_title" #title
+                                [clearButton]="true"></kendo-textbox>
+                            <kendo-formerror>title required</kendo-formerror>
+                        </kendo-formfield>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-lg-12">
+                        <kendo-formfield>
+                            <kendo-label [for]="Description" text="Description" class="customizing-label"></kendo-label>
+                            <kendo-textbox formControlName="description" [(ngModel)]="project_desc"
+                                [style.width.px]="200" #Description [clearButton]="true"></kendo-textbox>
+                            <!-- <kendo-textarea formControlName="description" #description  [style.width.px]="200"></kendo-textarea> -->
+                            <!-- <kendo-textarea
+                       #Description
+                       [style.width.px]="200"
+                       formControlName="description"
+                       placeholder="Leave a comment"
+                     >
+                     </kendo-textarea> -->
+                            <kendo-formerror>description is required</kendo-formerror>
+                        </kendo-formfield>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-lg-6">
+                        <kendo-formfield>
+                            <kendo-label [for]="watershed" text="Watershed"></kendo-label>
+                            <kendo-textbox formControlName="watershed" [(ngModel)]="watershed" #Waters
+                                [clearButton]="true"></kendo-textbox>
+                            <kendo-formerror>watershed is required</kendo-formerror>
+                        </kendo-formfield>
+                    </div>
+                    <div class="col-xs-12 col-lg-6">
+                        <kendo-formfield>
+                            <kendo-label [for]="responsible_water_board" text="responsible water board"></kendo-label>
+                            <kendo-textbox formControlName="responsible_water_board" [(ngModel)]="Responsible_Reg"
+                                #responsible_water_board [clearButton]="true"></kendo-textbox>
+                            <kendo-formerror>responsible water board is required</kendo-formerror>
+                        </kendo-formfield>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-lg-6">
+                        <kendo-formfield>
+                            <kendo-label [for]="country" text="Country"></kendo-label>
+                            <kendo-autocomplete #country [data]="countyName" [(ngModel)]="project_county"
+                                valueField="COUNTY_NAME" formControlName="country">
+                            </kendo-autocomplete>
+
+                            <kendo-formhint>Only Eroupean countries</kendo-formhint>
+                            <!-- <kendo-formerror *ngIf="!genralInformation.controls.country">Country is required
+                            </kendo-formerror> -->
+                        </kendo-formfield>
+                    </div>
+                </div>
+            </ng-template>
+        </kendo-panelbar-item>
+    </kendo-panelbar>
+
+
+</ng-container>

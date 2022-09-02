@@ -1,0 +1,40 @@
+<div class="container prviewcss">
+   
+    <div class="position-relative row form-group">
+      <div class="col-lg-10">
+        <h4><i class="fa fa-list" aria-hidden="true"></i> Submission List </h4>
+     
+      </div>
+      <div class="col-lg-2">
+        <a href="#" routerLink="/post/create/" class="k-button k-primary"><i  class="fa fa-plus"></i> Create New Post</a>
+
+      </div>
+
+    </div>
+    
+    <div *ngIf="message!==''" class="alert alert-success" role="alert">
+      {{message}}
+    </div>
+    <table id="employee" class="table ">
+        <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Body</th>
+                <th width="200px">Action</th>
+              </tr>
+        </thead>
+        <tbody>
+              <tr *ngFor="let post of posts">
+                <td>{{ post.id }}</td>
+                <td>{{ post.title }}</td>
+                <td>{{ post.body }}</td>
+                <td>
+                  <a href="#" [routerLink]="['/post/', post.id, 'view']" class="btn btn-eye"><i  class="fa fa-eye"></i> </a>
+                  <a href="#" [routerLink]="['/post/', post.id, 'edit']" class="btn btn-edit"><i  class="fa fa-edit"></i> </a>
+                  <button type="button" (click)="deletePost(post.id)" class="btn btn-del"><i  class="fa fa-trash"></i> </button>
+                </td>
+              </tr>
+        </tbody>
+    </table>
+ </div>

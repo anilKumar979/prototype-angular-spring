@@ -1,0 +1,143 @@
+<!-- <p>projectmanage works!</p> -->
+
+<ng-container [formGroup]="legisInformation">
+
+    <kendo-panelbar>
+        <kendo-panelbar-item title="Legislative Information" [expanded]="true">
+            <ng-template kendoPanelBarContent>
+                <p>The Legislative Information tab displays Senate, Assembly, and US Congressional District based on the
+                    latitude and longitude entered on the General Information tab. Additional districts (for larger or
+                    multi-site project) can be added using the CTRL+CLICK buttons.</p>
+                <table class="table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Legislative Information</th>
+                            <th>primary</th>
+                            <th>primary official</th>
+                            <th>Additional District(s)</th>
+                            <th>Additional Official</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Senate District</td>
+                            <td>
+                             <kendo-formfield>
+                                <kendo-autocomplete
+                                #senet
+                                [data]="senateDist"
+                                valueField="NAME"
+                                formControlName="senet_dist"
+                                (valueChange)="handleChangeSenet($event)"
+                                [(ngModel)]="senet_dist"
+                                >
+                                </kendo-autocomplete>
+                             </kendo-formfield>
+                            </td>
+                            
+                            <td>
+                                <!-- <kendo-formfield>
+
+                                   
+                                    <kendo-textbox formControlName="senet_dist" [(ngModel)]="senet_dist" #SenetDist
+                                        [clearButton]="true"></kendo-textbox>
+                                   
+        
+        
+                                </kendo-formfield>
+         -->
+                            </td>
+                            <td>
+                                <kendo-formfield>
+                                    <kendo-multiselect
+                                    #assembly
+                                    [data]="senateDist"
+                                    textField="NAME"
+                                    valueField="ID"
+                                    formControlName="legislative_value"
+                                    [(ngModel)]="legislative_value"
+                                    
+                                    >
+                                    </kendo-multiselect>
+                                </kendo-formfield>
+                            </td>
+                            <td>
+                                <p>Find Senate District</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Assembly District</td>
+                            <td>
+                                <kendo-formfield>
+                                    <kendo-autocomplete
+                                    #assembly
+                                    [data]="assemblyDist"
+                                    valueField="NAME"
+                                    formControlName="assembly_dist"
+                                    (valueChange)="valueChangeAssembly($event)"
+                                    [(ngModel)]="assembly_dist"
+                                    >
+                                    </kendo-autocomplete>
+                                </kendo-formfield>
+                            </td>
+                            <td></td>
+                            <td>
+                                <kendo-formfield>
+                                    <kendo-multiselect
+                                    #assembly
+                                    [data]="assemblyDist"
+                                    textField="NAME"
+                                    valueField="ID"
+                                    formControlName="assembly_value"
+                                    [(ngModel)]="assembly_value"
+                                    
+                                    >
+                                    </kendo-multiselect>
+                                </kendo-formfield>
+                            </td>
+                            <td>
+                                <p> Find Assembly District</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>US Congressional District</td>
+                            <td>
+                                <kendo-formfield>
+                                    <kendo-autocomplete
+                                    #senet
+                                    [data]="UscongressDist"
+                                    valueField="NAME"
+                                    formControlName="us_cong_dist"
+                                    (valueChange)="valueChangeUs($event)"
+                                    [(ngModel)]="us_cong_dist"
+                                    >
+                                    </kendo-autocomplete>
+                                </kendo-formfield>
+                            </td>
+                            <td></td>
+                            <td>
+                                <kendo-formfield>
+                                    <kendo-multiselect
+                                    #assembly
+                                    [data]="UscongressDist"
+                                    textField="NAME"
+                                    valueField="ID"
+                                    formControlName="us_cong_value"
+                                    [(ngModel)]="us_cong_value"
+                                    
+                                    >
+                                    </kendo-multiselect>
+                                </kendo-formfield>
+                            </td>
+                            <td>
+                                <p>	Find Assembly District</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ng-template>
+        </kendo-panelbar-item>
+
+    </kendo-panelbar>
+
+</ng-container>

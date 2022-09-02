@@ -1,0 +1,34 @@
+
+
+  
+
+  <div class="container-fluid widewidth">
+    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light widewidth">
+      <div class="container-fluid">
+          <a href="#" class="navbar-brand">
+              <img src="assets/images/hqsft-logo.png" height="40" alt="HQSFT">
+          </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse" >
+              <div class="navbar-nav" *ngIf="loginDisplay">
+                  
+                  <!-- <a routerLink="post" routerLinkActive="active" class="nav-item nav-link" tabindex="-1">Post</a> -->
+                  <!-- <a routerLink="flash" routerLinkActive="active" class="nav-item nav-link" tabindex="-1">Form</a> -->
+                  
+                  
+              </div>
+              <div class="navbar-nav ms-auto">
+                <a *ngIf="loginDisplay"   routerLinkActive="active" class="nav-item nav-link"><i class='fa fa-user'></i>  {{sessionStorage.getItem('User')}}</a>
+                  <!-- <a *ngIf="!loginDisplay" (click)="login()"  routerLinkActive="active" class="nav-item nav-link"><i class='fa fa-user'></i>  Login</a> -->
+                  <a *ngIf="loginDisplay" (click)="logout()"  routerLinkActive="active" href="#" class="nav-item nav-link"><i class='
+                    fa fa-sign-out'></i>  Logout</a>
+                  <!-- <button *ngIf="isLoggedIn()" (ngclick)="logout()">Logout</button> -->
+              </div>
+          </div>
+      </div>
+    </nav>
+    </div>
+    </div>

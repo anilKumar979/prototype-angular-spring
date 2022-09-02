@@ -1,0 +1,13 @@
+.widewidth{
+  background-image: linear-gradient(#164e7f,#4a6f8e);
+}
+.bg-light[_ngcontent-gqv-c92] {
+  --bs-bg-opacity: 1;
+  background-image: linear-gradient(#164e7f,#4a6f8e);
+}
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .nav-link.active {
+  color: rgb(255 255 255 / 90%);
+}
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(255 255 255 / 55%);
+}

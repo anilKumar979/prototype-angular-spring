@@ -1,0 +1,57 @@
+<!-- <p>player works!</p> -->
+<div class="row">
+  <div class="col-md-3">
+
+    <kendo-stepper #stepper [steps]="steps" stepType="full" orientation="vertical" [(currentStep)]="currentStep">
+    </kendo-stepper>
+  </div>
+  <div class="col-md-9">
+    <form class="k-form" [formGroup]="form">
+      <div class="testt">
+      <genral-information class="testtt" *ngIf="currentStep === 0" [genralInformation]="currentGroup"> </genral-information>
+      
+      <!-- <preview-page *ngIf="currentStep === 0" [previewPage]="currentGroup"> </preview-page> -->
+
+
+      <project-budget *ngIf="currentStep === 1" [projectBudget]="currentGroup"> </project-budget>
+
+      <funding *ngIf="currentStep === 2" [fundinDetails]="currentGroup"> </funding>
+
+      <project-manager *ngIf="currentStep === 3" [projectmanage]="currentGroup"> </project-manager>
+
+      <lagis-information *ngIf="currentStep === 4" [legisInformation]="currentGroup"> </lagis-information>
+
+      <contact-detail *ngIf="currentStep === 5" [contactPage]="currentGroup"> </contact-detail>
+
+      <cooperating-entities *ngIf="currentStep === 6" [cooperatingEntities]="currentGroup"> </cooperating-entities>
+
+      <questionnaire-tab *ngIf="currentStep === 7" [QuestionnaireTab]="currentGroup"> </questionnaire-tab>      
+
+      <attachment-tab *ngIf="currentStep === 8" [attachmentTab]="currentGroup"> </attachment-tab>
+
+      <performance-measure-tab *ngIf="currentStep === 9" [performanceMeasure]="currentGroup"> </performance-measure-tab>
+
+      <preview-page *ngIf="currentStep === 10" [previewPage]="currentGroup"> </preview-page>
+
+      <!-- <genral-information *ngIf="currentStep === 10" [genralInformation]="currentGroup"> </genral-information> -->
+    </div>
+      <span class="k-form-separator"></span>
+
+      <div class="k-form-buttons k-buttons-end">
+        <span class="page">Step {{ currentStep + 1 }} of 11</span>
+        <div>
+          <button class="k-button prev" *ngIf="currentStep !== 0" (click)="prev()">
+            Previous
+          </button>
+          <button class="k-button k-primary" (click)="next()" *ngIf="currentStep !== 10">
+            Next
+          </button>
+          <button class="k-button k-primary" (click)="submit()" *ngIf="currentStep === 10">
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

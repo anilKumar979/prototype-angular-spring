@@ -1,0 +1,73 @@
+<ng-container [formGroup]="contactPage">
+  <div>
+    <strong>
+      <h3 style="text-align:center">Contact</h3>
+    </strong>
+  </div>
+  <kendo-panelbar>
+    <kendo-panelbar-item title="Contact" [expanded]="true">
+      <ng-template kendoPanelBarContent>
+        <div class="row">
+          <div class="col-xs-12 col-lg-12">
+            <p>The Contacts tab allows the user to add or view/edit information previously entered. This tab is used to record the person/organization who was or will be contacted regarding this Project. To edit an existing contact, please select the name of the organization link. Changes made must be saved by clicking on the “Save Contact” button.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-lg-12">
+            <kendo-formfield>
+              <kendo-label [for]="cont_org_name" text="Organization Name"></kendo-label>
+              <kendo-textbox formControlName="cont_org_name" [(ngModel)]="cont_org_name" #ContOrgName
+                [clearButton]="true"></kendo-textbox>
+              <kendo-formerror>Organization Name is required</kendo-formerror>
+            </kendo-formfield>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-lg-6">
+            <kendo-formfield>
+              <kendo-label [for]="cont_first_name" text="First Name"></kendo-label>
+              <kendo-textbox formControlName="cont_first_name" #FirstName [clearButton]="true"
+                [(ngModel)]="cont_first_name"></kendo-textbox>
+              <kendo-formerror> First Name is required</kendo-formerror>
+              <!-- <kendo-formerror *ngIf="personalDetails.controls.email.errors?.email">Not a valid email format</kendo-formerror> -->
+            </kendo-formfield>
+          </div>       
+        
+          <div class="col-xs-12 col-lg-6">
+            <kendo-formfield>
+              <kendo-label [for]="cont_last_name" text="Last Name"> </kendo-label>
+              <kendo-textbox formControlName="cont_last_name" #LastName [clearButton]="true"
+                [(ngModel)]="cont_last_name">
+
+              </kendo-textbox>
+              <kendo-formerror>Last Name is required</kendo-formerror>
+            </kendo-formfield>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-lg-6">
+            <kendo-formfield>
+              <kendo-label [for]="cont_phone" text="Phone"> </kendo-label>
+              <kendo-textbox formControlName="cont_phone" #Phone [clearButton]="true" [(ngModel)]="cont_phone">
+              </kendo-textbox>
+              <kendo-formerror>Phone is required</kendo-formerror>
+              <!-- <kendo-formhint>Allowed extensions are jpg, jpeg or png</kendo-formhint> -->
+            </kendo-formfield>
+          </div>
+
+          <div class="col-xs-12 col-lg-6">
+            <kendo-formfield>
+              <kendo-label [for]="cont_email" text="Email"> </kendo-label>
+              <kendo-textbox formControlName="cont_email" #Email [clearButton]="true" [(ngModel)]="cont_email">
+              </kendo-textbox>
+              <kendo-formerror>Email is required</kendo-formerror>
+              <!-- <kendo-formhint>Allowed extensions are jpg, jpeg or png</kendo-formhint> -->
+            </kendo-formfield>
+          </div>
+          </div>
+      </ng-template>
+    </kendo-panelbar-item>
+  </kendo-panelbar>
+
+</ng-container>

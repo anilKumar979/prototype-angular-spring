@@ -1,0 +1,87 @@
+<ng-container [formGroup]="projectBudget">
+    <div>
+      <strong>
+        <h3 style="text-align:center">Project Budget</h3>
+      </strong>
+    </div>
+    <div *ngIf="ShowHide; else elseBlock"></div>
+    <ng-template #elseBlock>
+        <div class="loader-wrapper">
+            <div class="loader"></div>
+
+        </div>
+    </ng-template>
+      <kendo-panelbar>
+        <kendo-panelbar-item title="Project Budget" [expanded]="true">
+          <ng-template kendoPanelBarContent>
+            <div class="row">
+              <div class="col-xs-12 col-lg-12">
+                <p>The “Project Budget” tab allows the user to enter budget information for the project.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-lg-6">
+                <kendo-formfield>
+                  <kendo-label [for]="fund_request" text="Funds Requested($)"></kendo-label>
+                  <kendo-textbox 
+                  formControlName="fund_request" 
+                  [(ngModel)]="fund_request"
+                  #FundRequest 
+                  [clearButton]="true"
+                 
+                  ></kendo-textbox>
+                  <kendo-formerror>Funds Requested($) is required</kendo-formerror>
+                </kendo-formfield>
+              </div>
+              <div class="col-xs-12 col-lg-6">
+                <kendo-formfield>
+                  <kendo-label [for]="local_cost" text="Local Cost Match($)"></kendo-label>
+                  <kendo-textbox 
+                  formControlName="local_cost"
+                   #LocalCost
+                    [clearButton]="true"
+                   [(ngModel)]="local_cost"
+                   
+                   ></kendo-textbox>
+                  <kendo-formerror> Local Cost Match($) is required</kendo-formerror>
+                  <!-- <kendo-formerror *ngIf="personalDetails.controls.email.errors?.email">Not a valid email format</kendo-formerror> -->
+                </kendo-formfield>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-lg-6">
+                <kendo-formfield>
+                  <kendo-label [for]="total_budget" text="Total Budget($)"> </kendo-label>
+                  <kendo-textbox
+                   formControlName="total_budget"
+                    #TotalBudget 
+                    [clearButton]="true"
+                    [(ngModel)]="total_budget"
+                    
+                    >
+  
+                  </kendo-textbox>
+                  <kendo-formerror>Total Budget($) is required</kendo-formerror>
+                </kendo-formfield>
+              </div>
+  
+              <div class="col-xs-12 col-lg-6">
+                <kendo-formfield>
+                  <kendo-label [for]="duns_no" text="DUNS Number"> </kendo-label>
+                  <kendo-textbox 
+                  formControlName="duns_no" 
+                  #DunsNo
+                   [clearButton]="true"
+                   [(ngModel)]="duns_no"
+                  
+                  > </kendo-textbox>
+                  <kendo-formerror>Total Budget($) is required</kendo-formerror>
+                  <!-- <kendo-formhint>Allowed extensions are jpg, jpeg or png</kendo-formhint> -->
+                </kendo-formfield>
+              </div>
+            </div>
+          </ng-template>
+        </kendo-panelbar-item>
+      </kendo-panelbar>
+    
+  </ng-container>

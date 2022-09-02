@@ -1,0 +1,732 @@
+<div>
+  <strong>
+    <h3 style="text-align:center">Preview</h3>
+  </strong>
+</div>
+<kendo-panelbar>
+  <kendo-panelbar-item title="Application Preview " [expanded]="true">
+    <ng-template kendoPanelBarContent>
+      <div class="row">
+        <div class="col-xs-12 col-lg-12">
+          <p>The “General Information” tab allows the user to enter a project title, project description,
+            and location information for the project.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-3">
+          <p><strong>RFP Title:</strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-6">
+          <p>Cleanup and Abatement Account</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-3">
+          <p><strong>Applicant Organization:</strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-6">
+          <p>Coachella Valley Housing Coalition</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-3">
+          <p><strong>Applicant Division: </strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-6">
+          <p>Outreach</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-3">
+          <p><strong>Submitting Organization: </strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-6">
+          <p>Transparent IT</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-3">
+          <p><strong>Submitting Division: </strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-6">
+          <p>Outreach</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-3">
+          <p><strong>Watershed </strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-6">
+          <p>{{watershed}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-3">
+          <p><strong>County </strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-6">
+          <p>{{project_county}}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-lg-3">
+          <p><strong>Responsible Regional Water Board</strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-6">
+          <p>{{Responsible_Reg}}</p>
+        </div>
+      </div>
+    </ng-template>
+  </kendo-panelbar-item>
+</kendo-panelbar>
+
+<kendo-panelbar>
+  <kendo-panelbar-item title="Project Budget" [expanded]="true">
+    <ng-template kendoPanelBarContent>
+      <div class="row">
+        <div class="col-xs-12 col-lg-3">
+          <p><strong>Funds Requested($):</strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-6">
+          <p>{{fund_request === 0 ? 0 : fund_request}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-3">
+          <p><strong>Local Cost Match($):</strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-6">
+          <p>{{local_cost === 0 ? 0 : local_cost}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-3">
+          <p><strong>Total Budget($) : </strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-6">
+          <p>{{total_budget === 0 ? 0 : total_budget}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-3">
+          <p><strong>DUNS Number : </strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-6">
+          <p>{{duns_no === 0 ? 0 : duns_no}}</p>
+        </div>
+      </div>
+    </ng-template>
+  </kendo-panelbar-item>
+</kendo-panelbar>
+<kendo-panelbar>
+  <kendo-panelbar-item title="Funding Program" [expanded]="true">
+    <ng-template kendoPanelBarContent>
+      <div class="row">
+        <div class="col-xs-12 col-lg-3">
+          <p><strong>Cleanup and Abatement Account Program : </strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-6">
+          <p>{{fund_request_check === true ? "yes" : "No"}}</p>
+        </div>
+      </div>
+    </ng-template>
+  </kendo-panelbar-item>
+</kendo-panelbar>
+
+<kendo-panelbar>
+  <kendo-panelbar-item title="Project Management Role" [expanded]="true">
+    <ng-template kendoPanelBarContent>
+      <div class="row">
+        <div class="col-xs-12 col-lg-3">
+          <p>Project Director: Authorized Representative</p>
+          <p>Project Manager: Day to day contact</p>
+          <h3><strong>Applicant Information</strong></h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>Name: </strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-8">
+          <p>Coachella Valley Housing Coalition</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>Devision</strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-8">
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>Address</strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-8">
+          <p>45-701 Monroe Street Ste G Indio, CA , 92201 DUNS Number: 11</p>
+        </div>
+      </div>
+      <h3><strong>Person Submitting Information</strong></h3>
+      <div class="row">
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>Submitter Name:</strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-8">
+          <p>{{userName}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>Submitter Fax:</strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-8">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>Submitter Email:</strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-8">
+          <p>{{email}}</p>
+        </div>
+      </div>
+
+
+
+    </ng-template>
+  </kendo-panelbar-item>
+</kendo-panelbar>
+
+<kendo-panelbar>
+  <kendo-panelbar-item title="Legislative Information" [expanded]="true">
+    <ng-template kendoPanelBarContent>
+      <div class="row">
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>Legislative Information</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>Primary</strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>Additional District(s)</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <p>Senate District</p>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <p>{{senet_dist}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <div *ngIf="legislative_value; else elseBlock">
+            <div *ngFor="let val of legislative_value">
+              <a class="leg-space">{{val.NAME}}</a>
+            </div>
+          </div>
+          <ng-template #elseBlock></ng-template>
+        </div>
+
+        <div class="col-xs-12 col-lg-4">
+          <p>Assembly District</p>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <p>{{assembly_dist}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <div *ngIf="assembly_value; else elseBlock">
+            <div *ngFor="let val of assembly_value">
+              <a class="leg-space">{{val.NAME}}</a>
+            </div>
+          </div>
+          <ng-template #elseBlock></ng-template>
+        </div>
+
+        <div class="col-xs-12 col-lg-4">
+          <p>US Congressional District</p>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <p>{{us_cong_dist}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <div *ngIf="us_cong_value; else elseBlock">
+            <div *ngFor="let val of us_cong_value">
+              <a class="leg-space">{{val.NAME}}</a>
+            </div>
+          </div>
+          <ng-template #elseBlock></ng-template>
+        </div>
+
+      </div>
+    </ng-template>
+  </kendo-panelbar-item>
+</kendo-panelbar>
+
+<kendo-panelbar>
+  <kendo-panelbar-item title="Contacts" [expanded]="true">
+    <ng-template kendoPanelBarContent>
+      <div class="row">
+
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>Contacts</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>Name :</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>Phone</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <p>{{cont_org_name}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <p>{{cont_first_name}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <p>{{cont_phone}}</p>
+        </div>
+      </div>
+    </ng-template>
+  </kendo-panelbar-item>
+</kendo-panelbar>
+
+<kendo-panelbar>
+  <kendo-panelbar-item title="Cooperating Entities" [expanded]="true">
+    <ng-template kendoPanelBarContent>
+      <div class="row">
+        <div class="col-xs-12 col-lg-3">
+          <p><strong>Cooperating Entities</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-3">
+          <p><strong>Role</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-3">
+          <p><strong>Name :</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-3">
+          <p><strong>Phone</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-3">
+          <p>{{co_org_name}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-3">
+          <p>{{role_contribution}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-3">
+          <p>{{co_first_name}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-3">
+          <p>{{co_cotect_ph}}</p>
+        </div>
+      </div>
+    </ng-template>
+  </kendo-panelbar-item>
+</kendo-panelbar>
+
+<kendo-panelbar>
+  <kendo-panelbar-item title="Questionnaire - Phase 1" [expanded]="true">
+    <ng-template kendoPanelBarContent>
+      <div class="row">
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>Purpose of request:</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-8">
+          <p>{{purpose_of_request}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>Background:</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-8">
+          <p>{{background}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Has any portion of this project previously received funding through the Cleanup and Abatement
+              account? If so, please provide the funding amount approved, Cleanup and Abatement #, and a brief
+              description of the project.:</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{has_any_portion ? "yes": "No"}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-6">
+          <p>{{cleanup_abatement}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-6">
+          <p>{{has_any_portion_area}}</p>
+        </div>
+
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>Impact to community or surrounding areas with regards to water quality::</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-8">
+          <p>{{community_impact_area}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>What waste is being addressed by this project?:</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-8">
+          <p>{{project_waste_area}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>How do you plan to measure the water quality effectiveness of this project?:</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-8">
+          <p>{{project_waste_area}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Are other funds available for this project? If yes, please describe.</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ProjectFund ? "Yes":"No"}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-12">
+          <p>{{project_fund_area ? "Yes":"No"}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Will any of these funds be used for Regional Board oversight? If yes, how much? Typically, CAA
+              funds do not cover Regional Board oversight costs.</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ regional_bord_fund_ans === true ? "Yes" : "No"}}</p>
+        </div>
+
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>List any responsible party:</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ responsible_party_area}}</p>
+        </div>
+
+        <h3><strong>What Program Preference(s) does your project fulfill?</strong></h3>
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Preference 1: Emergency Cleanup Projects - Public Safety.</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ preference_1 === true ? "Yes" : "No"}}</p>
+        </div>
+
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Preference 2: Projects that address Disadvantaged Communities Environmental Justice Infastructure
+              needs.:</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ preference_2 === true ? "Yes" : "No"}}</p>
+        </div>
+
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Preference 3: Cleanup and/or abatement of 2006-listed water bodies that will help to implement a
+              Total Maximum Daily Load (TMDL).</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ preference_3 === true ? "Yes" : "No"}}</p>
+        </div>
+
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Preference 4: Cleanup and/or abatement of non-point source legacy pollutant (i.e Stormwater)when
+              the source(s) of the pollution have been mitigated.</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ preference_4 === true ? "Yes" : "No"}}</p>
+        </div>
+
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Preference 5: Cleanup and/or abatement of pollution in high-use groundwater basins.</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ preference_5 === true ? "Yes" : "No"}}</p>
+        </div>
+        <h3><strong>What Program Preference(s) does your project fulfill?</strong></h3>
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Preference 6: Cleanup and/or abatement of contaminated site when the viable responsible party has
+              not been identified.</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ preference_6 === true ? "Yes" : "No"}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Preference 7: Projects that promote habitat restoration through non-profit organizations that
+              collaborate with the Regional Water Boards and encourage public outreach and education.</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ preference_7 === true ? "Yes" : "No"}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Preference 8: Completion of a study/plan and/or monitoring addressing significant Statewide water
+              quality problems.</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ preference_8 === true ? "Yes" : "No"}}</p>
+        </div>
+        <p><strong>What Strategic Plan Goal(s) does your project fulfill?</strong></p>
+
+        Goal 5: Improve transparency and accountability by ensuring that Water Board goals and actions are clear and
+        accessible, by demonstrating and explaining results achieved with respect to the goals and resources available,
+        by enhancing and improving accessibility of data and information, and by encouraging the creating of
+        organizations or cooperative agreements that advance this goal.
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Goal 1: Implement strategies to fully support the beneficial uses for all 2006-listed water bodies
+              by 2030.</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ goal_1 === true ? "Yes" : "No"}}</p>
+
+        </div>
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Goal 2: Improve and protect groundwater quality in high-use basins by 2030..</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ goal_2 === true ? "Yes" : "No"}}</p>
+
+        </div>
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Goal 3: Increase sustainable local water supplies available for meeting existing and future
+              beneficial uses by 1,725,000 acre-feet per year by 2015, and ensure adequate flows for fish and wildlife
+              habitat.</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ goal_3 === true ? "Yes" : "No"}}</p>
+
+        </div>
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Goal 4: To comprehensively address water quality protection and restoration, and the relationship
+              between water supply and water quality, and describe the connections between water quality, water
+              quantity, and climate change, throughout California's water planning processes.</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ goal_5 === true ? "Yes" : "No"}}</p>
+
+        </div>
+
+        <h3><strong>What Strategic Plan Goal(s) does your project fulfill?</strong></h3>
+
+
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ goal_3 === true ? "Yes" : "No"}}</p>
+
+        </div>
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Goal 6: Enhance consistency across the Water Boards to ensure our processes are effective,
+              efficient, and predictable, and to promote fair and equitable application of laws, regulations, policies,
+              and procedures.</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ goal_6 === true ? "Yes" : "No"}}</p>
+
+        </div>
+
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Goal 7: Ensure that the Water Boards have access to information and expertise, including employees
+              with appropriate knowledge and skills, needed to effectively and efficiently carry out the Water Boards'
+              mission.</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ goal_7 === true ? "Yes" : "No"}}</p>
+
+        </div>
+        <h3><strong> Your project is consistent with what Water Code Section(s)?</strong></h3>
+
+
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Section 13442: State Water Board may order moneys to be paid from the CAA to a public agency with
+              authority to cleanup or abate the effects of waste in order "to assist it in cleaning up the waste or
+              abating its effects on the waters of the state"; or</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ section_13442 === true ? "Yes" : "No"}}</p>
+
+        </div>
+
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Section 13443: State Water Board may order moneys to be paid from the account to the Regional Water
+              Board to assist it in attempting to remedy a significant unforeseen water pollution problem, posing an
+              actual or potential public health threat, or is overseeing and tracking the implementation of a
+              supplemental environmental project required as a condition of an order imposing administrative civil
+              liability..</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ section_13443 === true ? "Yes" : "No"}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>CEQA must be completed before the project can begin. Please choose the anticipate method of CEQA
+              compliance below:.</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ categorial_exempt === true ? "Yes" : "No"}}</p>
+        </div>
+
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Indicate the status of the environmental document in the drop box below. If the CEQA document is
+              older than 5-years, please choose "Older than 5-yrs". Provide the estimated or known completion date in
+              the second box, and if the CEQA document is complete, the Clearinghouse number. Example (clearinghouse
+              number: 2009045843, document approved: 02/09/09).</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ havent_start === true ? "Yes" : "No"}}</p>
+        </div>
+        <h3><strong> If exempt, which exemption does your project meet?</strong></h3>
+
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>15301 Existing Facilities: Consists of the operation, repair, maintenance, permitting, leasing,
+              licensing, or minor alteration of existing public or private structures, facilities, mechanical equipment,
+              or topographical features, inviliving negligible or no expansion of use beyond that existing at the time
+              of the lead agency's determination..</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ consists_15301 === true ? "Yes" : "No"}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>15302 Replacement of Reconstruction: Consists of replacement or reconstruction of existing
+              structures and facilities where the new structure will be located on the same site as the structure
+              replaced and will have substantially the same purpose and capacity as the structure replaced...</strong>
+          </p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ consists_15302 === true ? "Yes" : "No"}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>15302 New Construction or Conversion of Small Structure: Consists of construction and location of
+              limited numbers of new, small facilities or structures; installation of small new equipment and facilities
+              in small structures; and the conversion of existing small structures from one use to another where only
+              minor modifications are made in the exterior of the stuctures..</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ consists_15303 === true ? "Yes" : "No"}}</p>
+        </div>
+
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>15304 Minor Alteration to Land: Consists of minor public or private alteration in the condition of
+              land, water and/or vegitation which do not involove removal of healthy, mature, scenic trees except for
+              forestry or agricultural purposes..</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ consists_15304 === true ? "Yes" : "No"}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Other</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ otherlist === true ? "Yes" : "No"}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-8">
+          <p><strong>Answer</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <p>{{ consists_area}}</p>
+        </div>
+
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Does your project have Regional Board support (i.e. Resolution or Letter from Executive Officer)?
+              If not, please provide an explanation.</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ does_your_proj === true ? "Yes" : "No"}}</p>
+        </div>
+        <div class="col-xs-12 col-lg-10">
+          <p><strong>Have you attached a detailed Scope of Work, Project Budget, and Schedule with your application? If
+              not, please provide an explanation..</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+          <p>{{ have_you_attach === true ? "Yes" : "No"}}</p>
+        </div>
+      </div>
+    </ng-template>
+  </kendo-panelbar-item>
+</kendo-panelbar>
+
+<kendo-panelbar>
+  <kendo-panelbar-item title="Attachments" [expanded]="true">
+    <ng-template kendoPanelBarContent>
+      <div class="row">
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>Attachment Title</strong></p>
+        </div>
+        <div class="col-xs-12 col-lg-8">
+          File Name
+        </div>
+        <div class="col-xs-12 col-lg-4">
+          <p><strong>{{project_attach}}</strong></p>
+        </div>
+
+        <div class="col-xs-12 col-lg-8">
+          <div *ngIf="fileName; else elseBlock">
+            <div class="filebord">
+              <div>
+                <i className="fa fa-file" aria-hidden="true"></i>
+                <a (click)="downloadFileCtrl(fileName.filename)" class="link"
+                  [href]="downloadFile">{{fileName.filename}}</a>
+              </div>
+            </div>
+          </div>
+          <ng-template #elseBlock></ng-template>
+        </div>
+
+      </div>
+    </ng-template>
+  </kendo-panelbar-item>
+</kendo-panelbar>
+
+<kendo-panelbar>
+  <kendo-panelbar-item title="Performance Measure Classification Data" [expanded]="false">
+    <ng-template kendoPanelBarContent>
+        <tabset>
+            <tab heading="Purpose">
+                <button (click)="one.MeasureTableView('Purpose')" class=" button btn-primary"> Show List </button>
+                <app-measure-table-tab #one></app-measure-table-tab>
+            </tab>
+           
+            <tab heading="Waterbody">
+                <button (click)="two.MeasureTableView('Waterbody')" class=" button btn-primary"> Show List </button>
+                <app-measure-table-tab #two></app-measure-table-tab>
+            </tab>
+            <tab heading="Land use">
+                <button (click)="three.MeasureTableView('Land Use')" class=" button2 btn-primary"> Show List </button>
+                <app-measure-table-tab #three></app-measure-table-tab>
+            </tab>
+            <tab heading="Site Condition">
+                <button (click)="four.MeasureTableView('Site Condition')" class=" button2 btn-primary"> Show List </button>
+                <app-measure-table-tab #four></app-measure-table-tab>
+            </tab>
+            <tab heading="Implementation">
+                <button (click)="five.MeasureTableView('Implementation')" class=" button btn-primary"> Show List </button>
+                <app-measure-table-tab #five></app-measure-table-tab>
+            </tab>
+            <tab heading="TMDL">
+                <button (click)="six.MeasureTableView('TMDL')" class=" button btn-primary"> Show List </button>
+                <app-measure-table-tab #six></app-measure-table-tab>
+            </tab>
+            <tab heading="BMPs">
+                <button (click)="seven.MeasureTableView('BMPs')" class=" button btn-primary"> Show List </button>
+                <app-measure-table-tab #seven></app-measure-table-tab>
+            </tab>
+            <tab heading="Sampling">
+                <button (click)="eight.MeasureTableView('Sampling')" class=" button btn-primary"> Show List </button>
+                <app-measure-table-tab #eight></app-measure-table-tab>
+            </tab>
+            <tab heading="Comments">
+                <button (click)="nine.MeasureTableView('Comments')" class=" button btn-primary"> Show List </button>
+                <app-measure-table-tab #nine></app-measure-table-tab>
+            </tab>
+        </tabset>
+    </ng-template>
+  </kendo-panelbar-item>
+</kendo-panelbar>

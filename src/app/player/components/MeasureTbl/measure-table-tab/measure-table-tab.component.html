@@ -1,0 +1,58 @@
+<!-- <p>Show new tabes</p>
+<p>Show new tabes</p>
+<p>Show new tabes</p> -->
+
+
+<div *ngIf="checkComment; else elseBlock">
+  <table className='table table-striped' style="width: 800px; height: 100px;">
+    <thead>
+      <tr>
+        <th>Comment By</th>
+        <th>Comment Text</th>
+        <th>Operation</th>
+      </tr>
+
+    </thead>
+    <tr  *ngFor="let val of PurposeList">
+      <td>{{userName}}</td>
+      <td>{{val.NAME}}</td>
+      <td>
+        <div class="opration2">
+          <button class='btn btn-danger'
+            (click)="deletePerformance(val.ID,val.RFP_PERFORMANCE_ATTRIBUTES_ID)">Delete</button>
+        </div>
+      </td>
+    </tr>
+    <tbody>
+
+    </tbody>
+  </table>
+</div>
+<ng-template #elseBlock>
+  <table className='table table-striped' style="width: 800px; height: 100px;">
+    <thead>
+      <tr>
+        <th>Attribute Name</th>
+        <th>Sub Attribute Name</th>
+        <th>Percentage</th>
+        <th>Operation</th>
+      </tr>
+
+    </thead>
+    <tbody>
+      <tr *ngFor="let val of PurposeList">
+        <td>{{val.NAME}}</td>
+        <td>{{val.SUB_ATTRIBUTE_NAME}}</td>
+        <td>{{val.VALUE}}</td>
+        <td>
+          <div class="opration2">
+            <button class='btn btn-danger'
+              (click)="deletePerformance(val.ID,val.RFP_PERFORMANCE_ATTRIBUTES_ID)">Delete</button>
+          </div>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+
+</ng-template>
